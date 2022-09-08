@@ -1,0 +1,40 @@
+.signup-option {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    border: 1px solid lightgrey;
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 15px;
+}
+.signup-option:hover {
+    color: #0d6efd;
+}
+.signup-option h4 {
+    color: black;
+}
+.flat-img {
+    width: 70px;
+    height: 70px;
+}
+.service-text {
+    text-decoration: none;
+}
+.status-progress {
+    background-color: #3d495c;
+}
+.signup-content input {
+    padding: 15px 35px;
+}
+.form-button {
+    text-align: center;
+}
+.form-title {
+    margin-bottom: 0px;
+}
+.signup-text {
+    margin-bottom: 25px;
+}
+.form-submit {
+    text-align: center;
+}
