@@ -19,7 +19,7 @@
                             <div class="col-6">
                                 <div class="me-1">
                                     <label>From (Pickup Country)</label>
-                                    <div>
+                                    <div class="d-flex">
                                         <i class="fa-solid fa-location-dot awesome-icon"></i>
                                         <select id="pickup_country" name="country" class="form-control select-country country-input">
                                             <option>Search to type</option>
@@ -82,7 +82,7 @@
                             <div class="col-6">
                                 <div class="ms-1">
                                     <label>To (Delivery Country)</label>
-                                    <div>
+                                    <div class="d-flex">
                                         <i class="fa-solid fa-location-dot awesome-icon"></i>
                                         <select id="destination_country" name="country" class="form-control select-country country-input">
                                             <option>Search to type</option>

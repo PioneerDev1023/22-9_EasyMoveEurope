@@ -12,11 +12,14 @@
         <div class="signin-content">
             <div class="signin-image">
                 <figure><img class="login-side-img" src="{{ asset('img/custom/delivery-man.png') }}" alt="sing up image"></figure>
-                <a href="#" class="signup-image-link">Create an account</a>
+                <a href="/whosignup" class="signup-image-link">Create an account</a>
             </div>
 
             <div class="signin-form">
                 <h2 class="form-title">Log In</h2>
+                <div class="alert alert-danger print-error-msg">
+                    <ul></ul>
+                </div>
                 <form method="POST" class="register-form" id="login-form">
                     @csrf
 
@@ -55,7 +58,7 @@
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
-                        <p>Don 't have an account? <a href="{{ route('register') }}" class="login-link">Register</a></p>
+                        <p>Don 't have an account? <a href="/whosignup" class="login-link">Register</a></p>
                     </div>
                 </form>
                 <!-- <div class="social-login">
@@ -126,10 +129,10 @@
                         window.location.href = "{{URL::to('admin/adminDashboard')}}";
                         return false;
                     }else if(data.status == '2') {
-                        window.location.href = "{{URL::to('manager/managerDashboard')}}";
+                        window.location.href = "{{URL::to('company/companyDashboard')}}";
                         return false;
                     }else if(data.status == '9') {
-                        window.location.href = "{{URL::to('dashboard')}}";
+                        window.location.href = "/dashboard";
                         return false;
                     }else if(data.status == '1') {
                         Command: toastr["error"]("Your account is in review yet. Please wait for a while!", "Warning");

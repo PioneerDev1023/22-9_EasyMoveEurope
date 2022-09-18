@@ -172,7 +172,7 @@ figure {
   margin: 0; }
 
 p {
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
   font-size: 15px;
   color: #777; }
 
@@ -258,7 +258,9 @@ body {
   overflow: hidden; }
 
 .signup-image {
-  margin: 0 55px; }
+  /* margin: 0 55px;  */
+  padding: 0px 20px;
+}
 
 .form-title {
   margin-bottom: 33px; }
@@ -286,7 +288,8 @@ figure {
   margin-top: 25px;
   cursor: pointer; }
   .form-submit:hover {
-    background: #4292dc; }
+    background: rgb(19 54 106);
+  }
 
 #signin {
   margin-top: 16px; }
@@ -302,9 +305,11 @@ figure {
   color: #222; }
 
 .signup-form {
-  margin-left: 75px;
+  /* margin-left: 75px;
   margin-right: 75px;
-  padding-left: 34px; }
+  padding-left: 34px;  */
+  padding: 0px 20px;
+}
 
 .register-form {
   width: 100%; 
@@ -640,6 +645,27 @@ label.valid {
   background-position: 100%;
   color: #253247;
 }
+.reg-btn:active {
+  color: #fff;
+  border: 3px solid #253247;
+  background-image: linear-gradient(30deg, #253247 50%, transparent 50%);
+  background-size: 500px;
+}
+.reg-btn:focus {
+  color: #fff;
+  border: 3px solid #253247;
+  background-image: linear-gradient(30deg, #253247 50%, transparent 50%);
+  background-size: 500px;
+}
 .form-button {
+  /* display: flex;
+  justify-content: space-between; */
   text-align: center;
+}
+#toast-container > div {
+  opacity:1;
+}
+.print-error-msg {
+  display: none;
+  text-align: left;
 }

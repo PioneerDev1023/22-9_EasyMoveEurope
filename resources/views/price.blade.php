@@ -218,9 +218,9 @@
                                 <label class="form-check-label cargo-label" for="cargo_val">VALUE</label>
                                 <input type="text" name="cargo_val" class="form-control" placeholder="€" required>
                             </div>
-                            <div class="col-md-12 mt-4">
+                            <!-- <div class="col-md-12 mt-4">
                                 <button type="text" class="form-control" name="receiver_btn" id="receiver_btn">Add another delivery address</button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row mt-5 contact-area">
                             <h2 class="h5"><span>Pickup options</span></h2>

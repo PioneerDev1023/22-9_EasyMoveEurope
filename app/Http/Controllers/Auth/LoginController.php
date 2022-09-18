@@ -76,8 +76,8 @@ class LoginController extends Controller
         {
             if (auth()->user()->type == 'admin') {
                 return response()->json(array('status' => 3,'success' => "admin"));
-            }else if (auth()->user()->type == 'manager') {
-                return response()->json(array('status' => 2,'success' => "manager"));
+            }else if (auth()->user()->type == 'company') {
+                return response()->json(array('status' => 2,'success' => "company"));
             }else if (auth()->user()->type == 'user') {
                 return response()->json(array('status' => 9,'success' => "approved"));
             }

@@ -53,7 +53,15 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ],
+        [
+            'name.required' => 'Please input your name!',
+            'email.required' => 'Please input the email address!',
+            'email.email' => 'Please input the email address exactly!',
+            'password.required' => 'Please input the password!',
+            'password.min' => 'Please input the password of 8 letters at least!',
+        ]
+    );
     }
 
     /**

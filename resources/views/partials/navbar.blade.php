@@ -29,12 +29,20 @@
             </a>
             <ul>
               @guest
-                <li><a href="/whosignup">Sign Up</a></li>
-                <li><a href="/login">Sign In</a></li>
+                <li><a class="account-link" href="/whosignup">Sign Up</a></li>
+                <li><a class="account-link" href="/login">Sign In</a></li>
               @else
-                <li><a href="#">Dashboard</a></li>
                 <li>
-                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  @if(auth()->user()->type == 'user')
+                    <a class="account-link" href="dashboard">Dashboard</a>
+                  @elseif(auth()->user()->type == 'admin')
+                    <a class="account-link" href="admin/adminDashboard">Dashboard</a>
+                  @elseif(auth()->user()->type == 'company')
+                    <a class="account-link" href="company/companyDashboard">Dashboard</a>
+                  @endif
+                </li>
+                <li>
+                  <a class="account-link nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

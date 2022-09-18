@@ -19,22 +19,22 @@
                     <h2 class="form-title">Get started for free!</h2>
                     <p class="form-title">What will you be using EasyMoveEurope for?</p>
                     <div>
-                        <a href="/company/signup" class="company-option signup-option">
+                        <a href="/comsignup" class="company-option signup-option">
                             <div class="col-3">
-                                <img class="flat-img col-4" src="{{ asset('img/icon/enterprise.png') }}" alt="">
+                                <img class="flat-img" src="{{ asset('img/icon/enterprise.png') }}" alt="">
                             </div>
                             <div class="col-9">
                                 <h4>Work & Business</h4>
-                                <p class="service-text col-5">Long-term benefits & VAT deduction</p>
+                                <p class="service-text">Long-term benefits & VAT deduction</p>
                             </div>
                         </a>
                         <a href="/register" class="person-option signup-option">
                             <div class="col-3">
-                                <img class="flat-img col-4" src="{{ asset('img/icon/person.png') }}" alt="">
+                                <img class="flat-img" src="{{ asset('img/icon/person.png') }}" alt="">
                             </div>
                             <div class="col-9">
                                 <h4>Personal needs</h4>
-                                <p class="service-text col-5">You will be shipping as an individual</p>
+                                <p class="service-text">You will be shipping as an individual</p>
                             </div>
                         </a>
                     </div>

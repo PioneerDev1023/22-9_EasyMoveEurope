@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5 pt-5">
-        <div class="col-md-8">
-            <div class="card text-center">
+        <div class="col-md-8 my-5">
+            <div class="card text-center py-3">
 
                 <h3><i class="fa fa-lock fa-4x"></i></h3>
                 <h2 class="text-center">Forgot Password?</h2>

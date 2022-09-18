@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Manager;
+namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class ManagerProfileController extends Controller
+class CompanyProfileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -31,7 +31,7 @@ class ManagerProfileController extends Controller
         $upcomingCount = $tmpArray[0];
         $upcomingRepair = $tmpArray[1];
         $profiles = DB::table('users')->where('email', $user_email)->get();
-        return view('manager.managerProfile',[
+        return view('company.companyProfile',[
             'profiles'=> $profiles,
             'upcomingCount'=> $upcomingCount,
             'upcomingRepair'=> $upcomingRepair

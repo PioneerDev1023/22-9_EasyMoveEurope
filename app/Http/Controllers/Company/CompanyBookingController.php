@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Manager;
+namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
-class ManagerDashboardController extends Controller
+class CompanyBookingController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,9 +22,8 @@ class ManagerDashboardController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function index()
     {
-        
         $comingValue = $this->getCount();
         $tmpArray = array();
         $tmpArray = explode('+', $comingValue);
@@ -33,7 +31,10 @@ class ManagerDashboardController extends Controller
         $upcomingCount = $tmpArray[0];
         $upcomingRepair = $tmpArray[1];
 
-        return view('manager.managerDashboard',[
+        $gname = auth()->user()->name;
+        $services = DB::table('purchases')->where('garage',$gname)->get();
+        return view('company.companyBooking',[
+            'services'=>$services,
             'upcomingCount'=> $upcomingCount,
             'upcomingRepair'=> $upcomingRepair
         ]);
@@ -56,7 +57,7 @@ class ManagerDashboardController extends Controller
 
         $pastRepair = 0;
         $upcomingRepair = 0;
-        $subDate = now()->subDays(5);
+        $subDate = now()->subDays(7);
         $rDates = DB::table('repairs')->select('created_at')->where('sel_location',$location)->get();
         foreach ($rDates as $rDate) {
             if( date('Y-m-d H-i-s', strtotime($rDate->created_at)) <= $subDate) {

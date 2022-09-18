@@ -21,6 +21,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'company_country',
+        'vat_id',
+        'ship_count',
+        'ship_area',
         'password',
         'type',
         'approve',
@@ -55,7 +60,7 @@ class User extends Authenticatable
     protected function type(): Attribute
     {
         return new Attribute(
-            get: fn ($value) =>  ["user", "admin", "manager"][$value],
+            get: fn ($value) =>  ["user", "admin", "company"][$value],
         );
     }
 }

@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('index');});
 
 Auth::routes();
+// Route::get('/comsignup', function () {
+//         return view('comsignup');
+//     });
+Route::get('comsignup',[App\Http\Controllers\Auth\ComRegisterController::class, 'index']);
+Route::post('comsignup',[App\Http\Controllers\Auth\ComRegisterController::class, 'create'])->name('comsignup.create');
 
 /*------------------------------------------
 --------------------------------------------
@@ -35,12 +40,6 @@ All Normal Users Routes List
     Route::get('/service-details', function () {
         return view('service-details');
     });
-    // Route::get('/login', function () {
-    //     return view('login');
-    // });
-    Route::get('/signup', function () {
-        return view('signup');
-    });
     Route::get('/price', function () {
         return view('price');
     });
@@ -53,9 +52,7 @@ All Normal Users Routes List
     Route::get('/whosignup', function () {
         return view('whosignup');
     });
-    Route::get('/company/signup', function () {
-        return view('comsignup');
-    });
+    
 
     // Route::get('repair',[App\Http\Controllers\RepairController::class, 'index']);
     Route::get('repair', function () {
@@ -113,10 +110,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:manager'])->group(function () {
-    Route::get('/manager/managerDashboard', [App\Http\Controllers\Manager\ManagerDashboardController::class, 'index'])->name('manager.managerDashboard');
-    Route::get('/manager/managerQuote', [App\Http\Controllers\Manager\ManagerQuoteController::class, 'index'])->name('manager.managerQuote');
-    Route::get('/manager/managerBooking', [App\Http\Controllers\Manager\ManagerBookingController::class, 'index'])->name('manager.managerBooking');
-    Route::get('/manager/managerProfile', [App\Http\Controllers\Manager\ManagerProfileController::class, 'index'])->name('manager.managerProfile');
+Route::middleware(['auth', 'user-access:company'])->group(function () {
+    Route::get('/company/companyDashboard', [App\Http\Controllers\company\CompanyDashboardController::class, 'index'])->name('company.companyDashboard');
+    Route::get('/company/companyQuote', [App\Http\Controllers\company\CompanyQuoteController::class, 'index'])->name('company.companyQuote');
+    Route::get('/company/companyBooking', [App\Http\Controllers\company\CompanyBookingController::class, 'index'])->name('company.companyBooking');
+    Route::get('/company/companyProfile', [App\Http\Controllers\company\CompanyProfileController::class, 'index'])->name('company.companyProfile');
 });
   

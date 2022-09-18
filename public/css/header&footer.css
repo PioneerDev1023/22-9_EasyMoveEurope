@@ -9,3 +9,12 @@
 #toast-container > div {
     opacity:1;
 }
+.account-link:hover {
+    color: black!important;   
+}
+
+body, html {
+    height: 100%;
+    text-align: center;
+}
+
