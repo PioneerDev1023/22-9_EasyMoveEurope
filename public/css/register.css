@@ -73,3 +73,9 @@
 #toast-container > div {
     opacity:1;
 }
+.first-section-content .form-group {
+    margin-bottom: 5px;
+}
+.second-section-content .form-group {
+    margin-bottom: 5px;
+}

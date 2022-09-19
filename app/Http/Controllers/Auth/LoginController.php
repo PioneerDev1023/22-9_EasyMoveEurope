@@ -63,14 +63,14 @@ class LoginController extends Controller
                     ]);
         }
 
-        $user_email = $request->email;
-        $enusers = DB::table('users')->where(['email'=>$user_email,'type'=>'0'])->get();
+        // $user_email = $request->email;
+        // $enusers = DB::table('users')->where(['email'=>$user_email,'type'=>'0'])->get();
         
-        foreach ($enusers as $enuser) {  
-            if( $enuser->approve == '0') {
-                return response()->json(array('status' => 1,'error' => "no approve"));
-            } 
-        }
+        // foreach ($enusers as $enuser) {  
+        //     if( $enuser->approve == '0') {
+        //         return response()->json(array('status' => 1,'error' => "no approve"));
+        //     } 
+        // }
 
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {

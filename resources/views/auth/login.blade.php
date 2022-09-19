@@ -134,10 +134,12 @@
                     }else if(data.status == '9') {
                         window.location.href = "/dashboard";
                         return false;
-                    }else if(data.status == '1') {
-                        Command: toastr["error"]("Your account is in review yet. Please wait for a while!", "Warning");
-                        return false;
-                    }else if(data.status == '0') {
+                    }
+                    // else if(data.status == '1') {
+                    //     Command: toastr["error"]("Your account is in review yet. Please wait for a while!", "Warning");
+                    //     return false;
+                    // }
+                    else if(data.status == '0') {
                         printErrorMsg(data.error);
                         return false;
                     }                                     

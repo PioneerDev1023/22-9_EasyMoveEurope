@@ -11,7 +11,7 @@
     <!-- Sign up form -->
     <section class="signup">
         <div class="container">
-            <form method="POST" class="register-form" id="register_form">
+            <form method="POST" class="register-form" id="register_form" autocomplete="off">
                 @csrf
                 <div class="signup-content first-section">
                     <div class="signup-image col-lg-6 col-md-12">
@@ -27,28 +27,28 @@
                     <div class="signup-form col-lg-6 col-md-12">
                         <h2 class="form-title">Account Details</h2>
                         <p class="signup-text">So we know where to contact you</p>
-                        <div class="register-form" id="register-form">
+                        <div class="first-section-content">
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Work Email" autocomplete="off" />
-                                <p class="error-valid" id="email_invalid">Please input your email</p>
                             </div>
+                            <p class="error-valid" id="email_invalid">Please input your email</p>
                             <div class="form-group">
                                 <label for="work_phone"><i class="zmdi zmdi-phone material-icons-name"></i></label>
                                 <input type="number" name="work_phone" id="work_phone" placeholder="Work Phone" autocomplete="off" />
-                                <p class="error-valid" id="phone_invalid">Please input your phone number</p>
                             </div>
+                            <p class="error-valid" id="phone_invalid">Please input your phone number</p>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" />
-                                <p class="error-valid" id="pass_invalid">Please input password</p>
                             </div>
+                            <p class="error-valid" id="pass_invalid">Please input password</p>
                             <div class="form-group">
                                 <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat your password" />
-                                <p class="error-valid" id="repass_invalid">Please input confirmation password</p>
-                                <p class="error-valid" id="two_pass_invalid">Please input confirmation password exactly</p>
                             </div>
+                            <p class="error-valid" id="repass_invalid">Please input confirmation password</p>
+                            <p class="error-valid" id="two_pass_invalid">Please input confirmation password exactly</p>
                             <!-- <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to join EasyMoveEurope’s mailing list</a></label>
@@ -73,22 +73,22 @@
                     <div class="signup-form">
                         <h2 class="form-title">Company details</h2>
                         <p class="signup-text">Enables long-term benefits & VAT deduction</p>
-                        <div class="register-form" id="register-form">
+                        <div class="second-section-content">
                             <div class="form-group">
                                 <label for="company_name"><i class="zmdi zmdi-accounts material-icons-name"></i></label>
                                 <input type="text" name="company_name" id="company_name" placeholder="Your Company Name" />
-                                <p class="error-valid" id="comname_invalid">Please input company name</p>
                             </div>
+                            <p class="error-valid" id="comname_invalid">Please input company name</p>
                             <div class="form-group">
                                 <label for="company_country"><i class="zmdi zmdi-globe material-icons-name"></i></label>
                                 <input type="text" name="company_country" id="company_country" placeholder="Country" />
-                                <p class="error-valid" id="comcountry_invalid">Please input company country</p>
                             </div>
+                            <p class="error-valid" id="comcountry_invalid">Please input company country</p>
                             <div class="form-group">
                                 <label for="vat_id"><i class="zmdi zmdi-shield-security material-icons-name"></i></label>
                                 <input type="text" name="vat_id" id="vat_id" placeholder="Please include the ISO country code (eg. LU14324350)" />
-                                <p class="error-valid" id="vat_invalid">Please input VAT ID</p>
                             </div>
+                            <p class="error-valid" id="vat_invalid">Please input VAT ID</p>
                             <div class="form-group form-button d-flex justify-content-between">
                                 <p name="signup" id="preceding_stepbtn" class="operbtn form-submit"><i class="fa fa-arrow-left" aria-hidden="true"></i></p>
                                 <p name="signup" id="next_stepbtn" class="operbtn form-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i></p>
@@ -110,7 +110,7 @@
                     <div class="signup-form">
                         <h2 class="form-title">Tell us more about your company</h2>
                         <p class="signup-text">We will use this information to tailor your service experience</p>
-                        <div class="register-form" id="register-form">
+                        <div class="third-section-content">
                             <div>
                                 <p>Your estimated monthly shipments?(optional)</p>
                                 <div class="d-flex justify-content-between">
@@ -331,8 +331,10 @@
                 },
                 success:function(data){
                     if(data.status == '2') {
-                        window.location.href = "login";
                         Command: toastr["success"]("registered successfully", "Success");
+                        setTimeout(() => {
+                            window.location.href = "/login";
+                        }, "3000")
                         return false;
                     } else if(data.status == '1') {
                         Command: toastr["error"]("Database Error", "Error");

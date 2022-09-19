@@ -5,7 +5,7 @@
   <div class="row gy-4">
     <div class="col-lg-6 col-md-12 footer-info">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{{ asset('img/logo (2).png') }}" alt="logo">
+        <img src="{{ asset('img/logo(bg).png') }}" alt="logo">
       </a>
       <p>For your company or for a private move, the dedicated van service is the ideal solution.</p>
     </div>
