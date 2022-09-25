@@ -5,7 +5,6 @@
       <a href="/" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{{ asset('img/logo(bg).png') }}" alt="logo">
-        <!-- <h1>Logis</h1> -->
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -52,9 +51,8 @@
               @endguest
             </ul>
           </li>
-          <!-- <li><a class="get-a-quote" href="get-a-quote.html">Get a Quote</a></li> -->
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
     </div>
-</header><!-- End Header -->
+</header>
 <!-- End Header -->

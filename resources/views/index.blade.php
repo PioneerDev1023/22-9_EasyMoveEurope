@@ -13,7 +13,8 @@
                 <h2 data-aos="fade-up">Dedicated Van Service</h2>
                 <h4 data-aos="fade-up" data-aos-delay="100">For residential or commercial move,<br /> rent a dedicated
                     van with driver</h4>
-                <form class="form-search mb-3" data-aos="fade-up" data-aos-delay="200">
+                <form class="form-search mb-3" data-aos="fade-up" data-aos-delay="200" action="{{ route('price.index') }}" method="POST">
+                    @csrf
                     <div>
                         <div class="d-flex justify-content-between mt-3">
                             <div class="col-6">
@@ -21,9 +22,8 @@
                                     <label>From (Pickup Country)</label>
                                     <div class="d-flex">
                                         <i class="fa-solid fa-location-dot awesome-icon"></i>
-                                        <select id="pickup_country" name="country" class="form-control select-country country-input">
-                                            <option>Search to type</option>
-                                            <option value="AX">Aland Islands</option>
+                                        <select id="pickup_country" name="pickup_country" class="form-control select-country country-input" required>
+                                            <option value="">Search to type</option>
                                             <option value="AL">Albania</option>
                                             <option value="AD">Andorra</option>
                                             <option value="AT">Austria</option>
@@ -41,15 +41,11 @@
                                             <option value="DE">Germany</option>
                                             <option value="GI">Gibraltar</option>
                                             <option value="GR">Greece</option>
-                                            <option value="GG">Guernsey</option>
                                             <option value="VA">Holy See (Vatican City State)</option>
                                             <option value="HU">Hungary</option>
                                             <option value="IS">Iceland</option>
                                             <option value="IE">Ireland</option>
-                                            <option value="IM">Isle of Man</option>
                                             <option value="IT">Italy</option>
-                                            <option value="JE">Jersey</option>
-                                            <option value="XK">Kosovo</option>
                                             <option value="LV">Latvia</option>
                                             <option value="LI">Liechtenstein</option>
                                             <option value="LT">Lithuania</option>
@@ -66,11 +62,9 @@
                                             <option value="RO">Romania</option>
                                             <option value="SM">San Marino</option>
                                             <option value="RS">Serbia</option>
-                                            <option value="CS">Serbia and Montenegro</option>
                                             <option value="SK">Slovakia</option>
                                             <option value="SI">Slovenia</option>
                                             <option value="ES">Spain</option>
-                                            <option value="SJ">Svalbard and Jan Mayen</option>
                                             <option value="SE">Sweden</option>
                                             <option value="CH">Switzerland</option>
                                             <option value="UA">Ukraine</option>
@@ -84,9 +78,8 @@
                                     <label>To (Delivery Country)</label>
                                     <div class="d-flex">
                                         <i class="fa-solid fa-location-dot awesome-icon"></i>
-                                        <select id="destination_country" name="country" class="form-control select-country country-input">
-                                            <option>Search to type</option>
-                                            <option value="AX">Aland Islands</option>
+                                        <select id="destination_country" name="destination_country" class="form-control select-country country-input" required>
+                                            <option value="">Search to type</option>
                                             <option value="AL">Albania</option>
                                             <option value="AD">Andorra</option>
                                             <option value="AT">Austria</option>
@@ -104,15 +97,11 @@
                                             <option value="DE">Germany</option>
                                             <option value="GI">Gibraltar</option>
                                             <option value="GR">Greece</option>
-                                            <option value="GG">Guernsey</option>
                                             <option value="VA">Holy See (Vatican City State)</option>
                                             <option value="HU">Hungary</option>
                                             <option value="IS">Iceland</option>
                                             <option value="IE">Ireland</option>
-                                            <option value="IM">Isle of Man</option>
                                             <option value="IT">Italy</option>
-                                            <option value="JE">Jersey</option>
-                                            <option value="XK">Kosovo</option>
                                             <option value="LV">Latvia</option>
                                             <option value="LI">Liechtenstein</option>
                                             <option value="LT">Lithuania</option>
@@ -129,11 +118,9 @@
                                             <option value="RO">Romania</option>
                                             <option value="SM">San Marino</option>
                                             <option value="RS">Serbia</option>
-                                            <option value="CS">Serbia and Montenegro</option>
                                             <option value="SK">Slovakia</option>
                                             <option value="SI">Slovenia</option>
                                             <option value="ES">Spain</option>
-                                            <option value="SJ">Svalbard and Jan Mayen</option>
                                             <option value="SE">Sweden</option>
                                             <option value="CH">Switzerland</option>
                                             <option value="UA">Ukraine</option>
@@ -145,7 +132,7 @@
                         </div>
                     </div>
                     <div class="submit-button">
-                        <a href="/price" class="submitbtn">Continue</a>
+                        <button type="submit" class="submitbtn">Continue</button>
                         <!-- <button type="submit" class="submitbtn btn btn-primary">Continue</button> -->
                     </div>
                 </form>
@@ -534,4 +521,38 @@
 
 </main>
 <!-- End #main -->
+
+<script>
+    $( document ).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        // $(".submitbtn").click(function(event) {
+        //     event.preventDefault();
+
+        //     var pickup_text = $("#pickup_country :selected").text();
+        //     var pickup_value = $("#pickup_country").val();
+        //     var destination_text = $("#destination_country :selected").text();
+        //     var destination_value = $("#destination_country").val();
+
+        //     $.ajax({
+        //         type:'POST',
+        //         url:"{{ route('price.index') }}",
+        //         data:{ pickup_text:pickup_text,
+        //             pickup_value:pickup_value,
+        //             destination_text:destination_text,
+        //             destination_value:destination_value
+        //         },
+        //         success:function(data){
+        //             window.location.href = "{{route('price.index')}}"
+        //         }
+        //     });
+            
+        // });
+        
+    });
+</script>
 @endsection

@@ -47,8 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator(array $data) {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -60,8 +59,7 @@ class RegisterController extends Controller
             'email.email' => 'Please input the email address exactly!',
             'password.required' => 'Please input the password!',
             'password.min' => 'Please input the password of 8 letters at least!',
-        ]
-    );
+        ]);
     }
 
     /**

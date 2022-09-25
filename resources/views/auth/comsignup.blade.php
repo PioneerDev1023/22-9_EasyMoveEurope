@@ -1,9 +1,9 @@
 @extends("layouts.app")
 
 @section("style")
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
-<link rel="stylesheet" href="{{ asset('fonts/material-icon/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/material-icon/css/material-design-iconic-font.min.css') }}">
 @endsection
 
 @section("content")
@@ -32,23 +32,23 @@
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Work Email" autocomplete="off" />
                             </div>
-                            <p class="error-valid" id="email_invalid">Please input your email</p>
+                            <p class="error-valid" id="email_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input your email</p>
                             <div class="form-group">
                                 <label for="work_phone"><i class="zmdi zmdi-phone material-icons-name"></i></label>
                                 <input type="number" name="work_phone" id="work_phone" placeholder="Work Phone" autocomplete="off" />
                             </div>
-                            <p class="error-valid" id="phone_invalid">Please input your phone number</p>
+                            <p class="error-valid" id="phone_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input your phone number</p>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" />
                             </div>
-                            <p class="error-valid" id="pass_invalid">Please input password</p>
+                            <p class="error-valid" id="pass_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input password</p>
                             <div class="form-group">
                                 <label for="password_confirmation"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat your password" />
                             </div>
-                            <p class="error-valid" id="repass_invalid">Please input confirmation password</p>
-                            <p class="error-valid" id="two_pass_invalid">Please input confirmation password exactly</p>
+                            <p class="error-valid" id="repass_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input confirmation password</p>
+                            <p class="error-valid" id="two_pass_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input confirmation password exactly</p>
                             <!-- <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to join EasyMoveEurope’s mailing list</a></label>
@@ -78,17 +78,17 @@
                                 <label for="company_name"><i class="zmdi zmdi-accounts material-icons-name"></i></label>
                                 <input type="text" name="company_name" id="company_name" placeholder="Your Company Name" />
                             </div>
-                            <p class="error-valid" id="comname_invalid">Please input company name</p>
+                            <p class="error-valid" id="comname_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input company name</p>
                             <div class="form-group">
                                 <label for="company_country"><i class="zmdi zmdi-globe material-icons-name"></i></label>
                                 <input type="text" name="company_country" id="company_country" placeholder="Country" />
                             </div>
-                            <p class="error-valid" id="comcountry_invalid">Please input company country</p>
+                            <p class="error-valid" id="comcountry_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input company country</p>
                             <div class="form-group">
                                 <label for="vat_id"><i class="zmdi zmdi-shield-security material-icons-name"></i></label>
                                 <input type="text" name="vat_id" id="vat_id" placeholder="Please include the ISO country code (eg. LU14324350)" />
                             </div>
-                            <p class="error-valid" id="vat_invalid">Please input VAT ID</p>
+                            <p class="error-valid" id="vat_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please input VAT ID</p>
                             <div class="form-group form-button d-flex justify-content-between">
                                 <p name="signup" id="preceding_stepbtn" class="operbtn form-submit"><i class="fa fa-arrow-left" aria-hidden="true"></i></p>
                                 <p name="signup" id="next_stepbtn" class="operbtn form-submit"><i class="fa fa-arrow-right" aria-hidden="true"></i></p>

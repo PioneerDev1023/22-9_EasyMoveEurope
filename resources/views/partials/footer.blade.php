@@ -3,14 +3,14 @@
 
 <div class="container">
   <div class="row gy-4">
-    <div class="col-lg-6 col-md-12 footer-info">
+    <div class="col-md-6 col-12 footer-info">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="{{ asset('img/logo(bg).png') }}" alt="logo">
       </a>
       <p>For your company or for a private move, the dedicated van service is the ideal solution.</p>
     </div>
 
-    <div class="col-lg-3 col-6 footer-links">
+    <div class="col-md-3 col-6 footer-links">
       <h4>Useful Links</h4>
       <ul>
         <li><a href="/">Home</a></li>
@@ -21,7 +21,7 @@
       </ul>
     </div>
 
-    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+    <div class="col-md-3 col-6 footer-contact text-center text-md-start">
       <h4>Contact Us</h4>
       <p>
         A108 Adam Street <br>

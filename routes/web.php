@@ -40,41 +40,38 @@ All Normal Users Routes List
     Route::get('/service-details', function () {
         return view('service-details');
     });
-    Route::get('/price', function () {
-        return view('price');
-    });
+    
     Route::get('/privacy', function () {
         return view('privacy');
-    });
-    Route::get('/order', function () {
-        return view('order');
     });
     Route::get('/whosignup', function () {
         return view('whosignup');
     });
     
+    Route::get('price', function() { 
+        return redirect('/'); 
+    });
+    Route::post('price/index',[App\Http\Controllers\PriceController::class, 'index'])->name('price.index');
+    Route::post('price/create',[App\Http\Controllers\PriceController::class, 'create'])->name('price.create');
 
-    // Route::get('repair',[App\Http\Controllers\RepairController::class, 'index']);
     Route::get('repair', function () {
         $locations = DB::table('users')->where(['type'=>'2'])->groupBy('location')->get();
         $services = DB::table('services')->get();
         return view('repair', ['locations' => $locations, 'services' => $services]);
     });
 
-    // Route::get('purchase',[App\Http\Controllers\PurchaseController::class, 'index']);
     Route::get('purchase', function () {
         $locations = DB::table('users')->where(['type'=>'2'])->groupBy('location')->get();
         return view('purchase', ['locations' => $locations]);
     });
     
-    Route::get('transport',[App\Http\Controllers\TransportController::class, 'index']);
+    Route::get('transport', [App\Http\Controllers\TransportController::class, 'index']);
 
     Route::get('sendMail', [App\Http\Controllers\MailController::class, 'index']);
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::post('repair',[App\Http\Controllers\RepairController::class, 'store'])->name('repair.store');
     Route::get('repairConfirm', function () { return view('repairConfirm');})->name('repairConfirm');
-
     
     Route::post('purchase',[App\Http\Controllers\PurchaseController::class, 'store'])->name('purchase.store');
     Route::get('purchaseConfirm', function () { return view('purchaseConfirm');})->name('purchaseConfirm');
