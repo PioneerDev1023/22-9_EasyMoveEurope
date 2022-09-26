@@ -42,10 +42,6 @@
                                                     <label for="uname" class="col-form-label">Name:</label>
                                                     <input type="text" class="form-control" id="uname" value="{{$data->name}}">
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="uemail" class="col-form-label">Email:</label>
-                                                    <input class="form-control" id="uemail" value="{{$data->email}}">
-                                                </div>
                                             @endforeach
                                         </form>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -159,7 +155,6 @@
             var _token = $("input[name='_token']").val();
             var uid = $('#uid').val();
             var uname = $('#uname').val();
-            var uemail = $('#uemail').val();
 
             $.ajaxSetup({
                 headers: {
@@ -174,7 +169,6 @@
                     _token:_token,
                     uid:uid, 
                     uname:uname, 
-                    uemail:uemail
                 },
                 success:function(data){
                     if(data.status == '2') {

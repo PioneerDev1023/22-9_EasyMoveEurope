@@ -82,15 +82,15 @@ class CompanyProfileController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'uname' => 'required',
-            'uemail' => 'required|email',
             'uphone' => 'required',
             'ucountry' => 'required',
             'uvat' => 'required'
         ],
         [
             'uname.required' => 'Please input the name!',
-            'uemail.required' => 'Please input the email address!',
-            'uemail.email' => 'Please input the email address exactly!',
+            'uphone.required' => 'Please input the phone number!',
+            'ucountry.required' => 'Please input the country!',
+            'uvat.required' => 'Please input the Vat ID!',
         ]
     );
   
@@ -104,7 +104,6 @@ class CompanyProfileController extends Controller
         $result = User::where('id', $request->uid)
         ->update([
             'name' => $request->uname,
-            'email' => $request->uemail,
             'phone' => $request->uphone,
             'company_country' => $request->ucountry,
             'vat_id' => $request->uvat

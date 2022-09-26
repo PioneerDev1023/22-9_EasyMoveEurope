@@ -80,12 +80,9 @@ class ProfileController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'uname' => 'required',
-            'uemail' => 'required|email'
         ],
         [
             'uname.required' => 'Please input the name!',
-            'uemail.required' => 'Please input the email address!',
-            'uemail.email' => 'Please input the email address exactly!'
         ]
     );
   
@@ -99,7 +96,6 @@ class ProfileController extends Controller
         $result = User::where('id', $request->uid)
         ->update([
             'name' => $request->uname,
-            'email' => $request->uemail,
         ]);
 
         if(!$result) {

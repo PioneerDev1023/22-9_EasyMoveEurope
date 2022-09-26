@@ -43,10 +43,6 @@
                                                     <input type="text" class="form-control" id="uname" value="{{$data->name}}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="uemail" class="col-form-label">Email:</label>
-                                                    <input class="form-control" id="uemail" value="{{$data->email}}">
-                                                </div>
-                                                <div class="mb-3">
                                                     <label for="uname" class="col-form-label">Phone:</label>
                                                     <input type="text" class="form-control" id="uphone" value="{{$data->phone}}">
                                                 </div>
@@ -195,7 +191,6 @@
             var _token = $("input[name='_token']").val();
             var uid = $('#uid').val();
             var uname = $('#uname').val();
-            var uemail = $('#uemail').val();
             var uphone = $('#uphone').val();
             var ucountry = $('#ucountry').val();
             var uvat = $('#uvat').val();
@@ -213,7 +208,6 @@
                     _token:_token,
                     uid:uid, 
                     uname:uname, 
-                    uemail:uemail,
                     uphone:uphone, 
                     ucountry:ucountry, 
                     uvat:uvat
