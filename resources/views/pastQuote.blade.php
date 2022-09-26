@@ -30,7 +30,7 @@
                           </tr>
                         </thead>   
                         @foreach($requests as $key => $updata)
-                          @if($updata->collection_day >= now())
+                          @if($updata->collection_day <= now())
                             <tbody>
                               <tr>
                                 <td>{{$updata->id}}</td>

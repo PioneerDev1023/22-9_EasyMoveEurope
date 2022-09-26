@@ -13,12 +13,8 @@
             <div class="db-content col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="db-top">
                     <h3 class="fredoka">
-                        {{ Auth::user()->name }}'s Booking
+                        Upcoming Service
                     </h3>
-                    <!-- <div>
-                        <img class="db-img" src="{{ asset('images/small/dashboard/search.png') }}">
-                        <img class="db-img" src="{{ asset('images/small/dashboard/notification.png') }}">
-                    </div> -->
                 </div>
                 <div class="db-field">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

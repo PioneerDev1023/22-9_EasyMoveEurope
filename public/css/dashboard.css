@@ -93,7 +93,7 @@
     margin-left: 15px;
 }
 .fbox-image2 {
-    padding: 20px;
+    padding: 20px 25px;
     border-radius: 50%;
     background-color: #f0ebfe;
 }
@@ -115,7 +115,7 @@
     flex-wrap: wrap;
 }
 .sale-img {
-    width: 100%;
+    width: 150px;
 }
 .sale-image {
     margin: auto;
@@ -331,4 +331,15 @@ tr {
 }
 #toast-container > div {
     opacity:1;
+}
+.dashboard-upcoming {
+    color: #dc3545;
+    font-size: 35px;
+}
+.dashboard-past {
+    color: #3e4a5d;
+    font-size: 35px;
+}
+.profile-section {
+    padding: 0px;
 }

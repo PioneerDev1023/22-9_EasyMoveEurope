@@ -8,7 +8,7 @@
     <section class="container dashboard">
         <div class="dashboard-area">
 
-            @include("partials.sidebar")
+            @include("partials.companySidebar")
 
             <div class="db-content col-lg-9 col-md-7 col-sm-12 col-12">
                 <div class="db-top">
@@ -30,7 +30,7 @@
                           </tr>
                         </thead>   
                         @foreach($requests as $key => $updata)
-                          @if($updata->collection_day >= now())
+                          @if($updata->collection_day <= now())
                             <tbody>
                               <tr>
                                 <td>{{$updata->id}}</td>

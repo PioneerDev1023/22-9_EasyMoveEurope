@@ -56,49 +56,55 @@ class PriceController extends Controller
             'contact_email' => ['required', 'string', 'email', 'max:255'],
             'contact_phone' => ['required', 'min:8'],
             'term_agree' => ['required'],
-        ]
-    );
+            'price' => ['required'],
+            ],
+            [
+                'term_agree.required' => 'Please read and accept the Terms and Conditions of EasyMoveEurope!',
+            ]
+        );
 
-    if ($validator->fails()) {
-        return response()->json([
-                    'status' => 0,
-                    'error' => $validator->errors()->all()
-                ]);
-    }
+        if ($validator->fails()) {
+            return response()->json([
+                        'status' => 0,
+                        'error' => $validator->errors()->all()
+                    ]);
+        }
 
-    $result = Price::create([
-        'who_type' => $data['who_type'],
-        'pickup_country' => $data['pickup_country'],
-        'sender_city' => $data['sender_city'],
-        'sender_address' => $data['sender_address'],
-        'sender' => $data['sender'],
-        'sender_phone' => $data['sender_phone'],
-        'sender_full_phone' => $data['sender_full_phone'],
-        'desti_country' => $data['desti_country'],
-        'receiver_city' => $data['receiver_city'],
-        'receiver_address' => $data['receiver_address'],
-        'receiver' => $data['receiver'],
-        'receiver_phone' => $data['receiver_phone'],
-        'receiver_full_phone' => $data['receiver_full_phone'],
-        'van_type' => $data['van_type'],
-        'help_loading' => $data['help_loading'],
-        'help_unloading' => $data['help_unloading'],
-        'tail_lift' => $data['tail_lift'],
-        'cargo_info' => $data['cargo_info'],
-        'cargo_val' => $data['cargo_val'],
-        'collection_day' => $data['collection_day'],
-        'contact_name' => $data['contact_name'],
-        'contact_email' => $data['contact_email'],
-        'contact_phone' => $data['contact_phone'],
-        'contact_full_phone' => $data['contact_full_phone'],
-        'contact_note' => $data['contact_note'],
-    ]);
+        $result = Price::create([
+            'who_type' => $data['who_type'],
+            'pickup_country' => $data['pickup_country'],
+            'sender_city' => $data['sender_city'],
+            'sender_address' => $data['sender_address'],
+            'sender' => $data['sender'],
+            'sender_phone' => $data['sender_phone'],
+            'sender_full_phone' => $data['sender_full_phone'],
+            'desti_country' => $data['desti_country'],
+            'receiver_city' => $data['receiver_city'],
+            'receiver_address' => $data['receiver_address'],
+            'receiver' => $data['receiver'],
+            'receiver_phone' => $data['receiver_phone'],
+            'receiver_full_phone' => $data['receiver_full_phone'],
+            'van_type' => $data['van_type'],
+            'help_loading' => $data['help_loading'],
+            'help_unloading' => $data['help_unloading'],
+            'tail_lift' => $data['tail_lift'],
+            'cargo_info' => $data['cargo_info'],
+            'cargo_val' => $data['cargo_val'],
+            'collection_day' => $data['collection_day'],
+            'contact_name' => $data['contact_name'],
+            'contact_email' => $data['contact_email'],
+            'user_email' => $data['user_email'],
+            'contact_phone' => $data['contact_phone'],
+            'contact_full_phone' => $data['contact_full_phone'],
+            'contact_note' => $data['contact_note'],
+            'price' => $data['price'],
+        ]);
 
-    if(!$result) {
-        return response()->json(array('status' => 1,'error' => "Database Error"));
-    }  
-    
-    return response()->json(array('status' => 2,'msg' => "Successfully Submitted"));
+        if(!$result) {
+            return response()->json(array('status' => 1,'error' => "Database Error"));
+        }  
+        
+        return response()->json(array('status' => 2,'msg' => "Successfully Submitted"));
           
     }
 }

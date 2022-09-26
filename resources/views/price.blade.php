@@ -54,7 +54,7 @@
                                     <div class="col-md-6 col-sm-12 col-12">
                                         <div class="van-item ms-1 d-flex justify-content-between px-3">
                                             <label class="d-flex van-label" for="person_user">
-                                                <input type="radio" checked="checked" class="btn-check first-checkbtn" name="who_type" value="person" id="person_user"
+                                                <input type="radio" class="btn-check first-checkbtn" name="who_type" value="person" id="person_user"
                                                     autocomplete="off">
                                                 <img src="{{ asset('img/icon/person.png') }}" class="me-2" alt="" height="50"
                                                     loading="lazy">
@@ -75,81 +75,49 @@
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="pickup_country">COUNTRY</label>
                                     <select id="pickup_country" name="pickup_country" class="pickup-country" onChange="pickupFunction(this);">
-                                        <option value="AL" <?php echo $pickup_country == 'AL' ? 'selected' : "" ?> >Albania</option>
-                                        <option value="AD" <?php echo $pickup_country == 'AD' ? 'selected' : "" ?> >Andorra</option>
                                         <option value="AT" <?php echo $pickup_country == 'AT' ? 'selected' : "" ?> >Austria</option>
-                                        <option value="BY" <?php echo $pickup_country == 'BY' ? 'selected' : "" ?> >Belarus</option>
                                         <option value="BE" <?php echo $pickup_country == 'BE' ? 'selected' : "" ?> >Belgium</option>
-                                        <option value="BA" <?php echo $pickup_country == 'BA' ? 'selected' : "" ?> >Bosnia and Herzegovina</option>
                                         <option value="BG" <?php echo $pickup_country == 'BG' ? 'selected' : "" ?> >Bulgaria</option>
                                         <option value="HR" <?php echo $pickup_country == 'HR' ? 'selected' : "" ?> >Croatia</option>
                                         <option value="CZ" <?php echo $pickup_country == 'CZ' ? 'selected' : "" ?> >Czech Republic</option>
                                         <option value="DK" <?php echo $pickup_country == 'DK' ? 'selected' : "" ?> >Denmark</option>
                                         <option value="EE" <?php echo $pickup_country == 'EE' ? 'selected' : "" ?> >Estonia</option>
-                                        <option value="FO" <?php echo $pickup_country == 'FO' ? 'selected' : "" ?> >Faroe Islands</option>
                                         <option value="FI" <?php echo $pickup_country == 'FI' ? 'selected' : "" ?> >Finland</option>
                                         <option value="FR" <?php echo $pickup_country == 'FR' ? 'selected' : "" ?> >France</option>
                                         <option value="DE" <?php echo $pickup_country == 'DE' ? 'selected' : "" ?> >Germany</option>
-                                        <option value="GI" <?php echo $pickup_country == 'GI' ? 'selected' : "" ?> >Gibraltar</option>
                                         <option value="GR" <?php echo $pickup_country == 'GR' ? 'selected' : "" ?> >Greece</option>
-                                        <option value="VA" <?php echo $pickup_country == 'VA' ? 'selected' : "" ?> >Holy See (Vatican City State)</option>
                                         <option value="HU" <?php echo $pickup_country == 'HU' ? 'selected' : "" ?> >Hungary</option>
-                                        <option value="IS" <?php echo $pickup_country == 'IS' ? 'selected' : "" ?> >Iceland</option>
                                         <option value="IE" <?php echo $pickup_country == 'IE' ? 'selected' : "" ?> >Ireland</option>
                                         <option value="IT" <?php echo $pickup_country == 'IT' ? 'selected' : "" ?> >Italy</option>
                                         <option value="LV" <?php echo $pickup_country == 'LV' ? 'selected' : "" ?> >Latvia</option>
-                                        <option value="LI" <?php echo $pickup_country == 'LI' ? 'selected' : "" ?> >Liechtenstein</option>
                                         <option value="LT" <?php echo $pickup_country == 'LT' ? 'selected' : "" ?> >Lithuania</option>
                                         <option value="LU" <?php echo $pickup_country == 'LU' ? 'selected' : "" ?> >Luxembourg</option>
-                                        <option value="MK" <?php echo $pickup_country == 'MK' ? 'selected' : "" ?> >Macedonia, the Former Yugoslav Republic of</option>
-                                        <option value="MT" <?php echo $pickup_country == 'MT' ? 'selected' : "" ?> >Malta</option>
-                                        <option value="MD" <?php echo $pickup_country == 'MD' ? 'selected' : "" ?> >Moldova, Republic of</option>
-                                        <option value="MC" <?php echo $pickup_country == 'MC' ? 'selected' : "" ?> >Monaco</option>
-                                        <option value="ME" <?php echo $pickup_country == 'ME' ? 'selected' : "" ?> >Montenegro</option>
                                         <option value="NL" <?php echo $pickup_country == 'NL' ? 'selected' : "" ?> >Netherlands</option>
                                         <option value="NO" <?php echo $pickup_country == 'NO' ? 'selected' : "" ?> >Norway</option>
                                         <option value="PL" <?php echo $pickup_country == 'PL' ? 'selected' : "" ?> >Poland</option>
                                         <option value="PT" <?php echo $pickup_country == 'PT' ? 'selected' : "" ?> >Portugal</option>
                                         <option value="RO" <?php echo $pickup_country == 'RO' ? 'selected' : "" ?> >Romania</option>
-                                        <option value="SM" <?php echo $pickup_country == 'SM' ? 'selected' : "" ?> >San Marino</option>
                                         <option value="RS" <?php echo $pickup_country == 'RS' ? 'selected' : "" ?> >Serbia</option>
                                         <option value="SK" <?php echo $pickup_country == 'SK' ? 'selected' : "" ?> >Slovakia</option>
                                         <option value="SI" <?php echo $pickup_country == 'SI' ? 'selected' : "" ?> >Slovenia</option>
                                         <option value="ES" <?php echo $pickup_country == 'ES' ? 'selected' : "" ?> >Spain</option>
                                         <option value="SE" <?php echo $pickup_country == 'SE' ? 'selected' : "" ?> >Sweden</option>
                                         <option value="CH" <?php echo $pickup_country == 'CH' ? 'selected' : "" ?> >Switzerland</option>
-                                        <option value="UA" <?php echo $pickup_country == 'UA' ? 'selected' : "" ?> >Ukraine</option>
                                         <option value="GB" <?php echo $pickup_country == 'GB' ? 'selected' : "" ?> >United Kingdom</option>
                                     </select>   
                                     <p class="error-valid" id="pickup_country_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please select the country</p>
-
-                                    @error('pickup_country')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
-                                <div class="col-12 mt-4">
-                                    <label class="form-check-label" for="sender_city">TYPE THE CITY/TOWN</label>
-                                    <input type="text" name="sender_city" id="sender_city" class="form-control" placeholder="Type the city/town">
-                                    <p class="error-valid" id="sender_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please type the city/town</p>
-
-                                    @error('sender_city')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="col-12 mt-4">
-                                    <label class="form-check-label" for="sender_address">FIND THE ADDRESS</label>
-                                    <input type="text" name="sender_address" id="sender_address" class="form-control" placeholder="Enter street, house no., city">
-                                    <p class="error-valid" id="sender_address_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the address</p>
-
-                                    @error('sender_address')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                <div class="d-flex">
+                                    <div class="col-8 mt-4">
+                                        <label class="form-check-label" for="sender_city">FIND THE ADDRESS</label>
+                                        <input type="text" name="sender_city" id="sender_city" class="form-control" placeholder="Start typing your address">
+                                        <p class="error-valid" id="sender_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Start typing your address</p>
+                                    </div>
+                                    <div class="col-4 mt-4">
+                                        <label class="form-check-label" for="sender_address">HOUSE NR</label>
+                                        <input type="text" name="sender_address" id="sender_address" class="form-control" placeholder="16A">
+                                        <p class="error-valid" id="sender_address_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the HOUSE NR</p>
+                                    </div>
                                 </div>
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="sender">SENDER</label>
@@ -158,7 +126,7 @@
                                 </div>
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="sender_phone">PHONE NUMBER</label>
-                                    <input type="number" class="form-control" name="sender_phone" id="sender_phone" placeholder="4155552671">
+                                    <input type="number" class="form-control" name="sender_phone" id="sender_phone" placeholder="PHONE NUMBER">
                                     <p class="error-valid" id="sender_phone_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the phone number</p>
                                 </div>
                                 <!-- <div class="col-12 mt-4">
@@ -170,63 +138,49 @@
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="desti_country">COUNTRY</label>
                                     <select id="desti_country" name="desti_country" class="desti-country" onChange="destiFunction(this);">
-                                        <option value="AL" <?php echo $destination_country == 'AL' ? 'selected' : "" ?> >Albania</option>
-                                        <option value="AD" <?php echo $destination_country == 'AD' ? 'selected' : "" ?> >Andorra</option>
                                         <option value="AT" <?php echo $destination_country == 'AT' ? 'selected' : "" ?> >Austria</option>
-                                        <option value="BY" <?php echo $destination_country == 'BY' ? 'selected' : "" ?> >Belarus</option>
                                         <option value="BE" <?php echo $destination_country == 'BE' ? 'selected' : "" ?> >Belgium</option>
-                                        <option value="BA" <?php echo $destination_country == 'BA' ? 'selected' : "" ?> >Bosnia and Herzegovina</option>
                                         <option value="BG" <?php echo $destination_country == 'BG' ? 'selected' : "" ?> >Bulgaria</option>
                                         <option value="HR" <?php echo $destination_country == 'HR' ? 'selected' : "" ?> >Croatia</option>
                                         <option value="CZ" <?php echo $destination_country == 'CZ' ? 'selected' : "" ?> >Czech Republic</option>
                                         <option value="DK" <?php echo $destination_country == 'DK' ? 'selected' : "" ?> >Denmark</option>
                                         <option value="EE" <?php echo $destination_country == 'EE' ? 'selected' : "" ?> >Estonia</option>
-                                        <option value="FO" <?php echo $destination_country == 'FO' ? 'selected' : "" ?> >Faroe Islands</option>
                                         <option value="FI" <?php echo $destination_country == 'FI' ? 'selected' : "" ?> >Finland</option>
                                         <option value="FR" <?php echo $destination_country == 'FR' ? 'selected' : "" ?> >France</option>
                                         <option value="DE" <?php echo $destination_country == 'DE' ? 'selected' : "" ?> >Germany</option>
-                                        <option value="GI" <?php echo $destination_country == 'GI' ? 'selected' : "" ?> >Gibraltar</option>
                                         <option value="GR" <?php echo $destination_country == 'GR' ? 'selected' : "" ?> >Greece</option>
-                                        <option value="VA" <?php echo $destination_country == 'VA' ? 'selected' : "" ?> >Holy See (Vatican City State)</option>
                                         <option value="HU" <?php echo $destination_country == 'HU' ? 'selected' : "" ?> >Hungary</option>
-                                        <option value="IS" <?php echo $destination_country == 'IS' ? 'selected' : "" ?> >Iceland</option>
                                         <option value="IE" <?php echo $destination_country == 'IE' ? 'selected' : "" ?> >Ireland</option>
                                         <option value="IT" <?php echo $destination_country == 'IT' ? 'selected' : "" ?> >Italy</option>
                                         <option value="LV" <?php echo $destination_country == 'LV' ? 'selected' : "" ?> >Latvia</option>
-                                        <option value="LI" <?php echo $destination_country == 'LI' ? 'selected' : "" ?> >Liechtenstein</option>
                                         <option value="LT" <?php echo $destination_country == 'LT' ? 'selected' : "" ?> >Lithuania</option>
                                         <option value="LU" <?php echo $destination_country == 'LU' ? 'selected' : "" ?> >Luxembourg</option>
-                                        <option value="MK" <?php echo $destination_country == 'MK' ? 'selected' : "" ?> >Macedonia, the Former Yugoslav Republic of</option>
-                                        <option value="MT" <?php echo $destination_country == 'MT' ? 'selected' : "" ?> >Malta</option>
-                                        <option value="MD" <?php echo $destination_country == 'MD' ? 'selected' : "" ?> >Moldova, Republic of</option>
-                                        <option value="MC" <?php echo $destination_country == 'MC' ? 'selected' : "" ?> >Monaco</option>
-                                        <option value="ME" <?php echo $destination_country == 'ME' ? 'selected' : "" ?> >Montenegro</option>
                                         <option value="NL" <?php echo $destination_country == 'NL' ? 'selected' : "" ?> >Netherlands</option>
                                         <option value="NO" <?php echo $destination_country == 'NO' ? 'selected' : "" ?> >Norway</option>
                                         <option value="PL" <?php echo $destination_country == 'PL' ? 'selected' : "" ?> >Poland</option>
                                         <option value="PT" <?php echo $destination_country == 'PT' ? 'selected' : "" ?> >Portugal</option>
                                         <option value="RO" <?php echo $destination_country == 'RO' ? 'selected' : "" ?> >Romania</option>
-                                        <option value="SM" <?php echo $destination_country == 'SM' ? 'selected' : "" ?> >San Marino</option>
                                         <option value="RS" <?php echo $destination_country == 'RS' ? 'selected' : "" ?> >Serbia</option>
                                         <option value="SK" <?php echo $destination_country == 'SK' ? 'selected' : "" ?> >Slovakia</option>
                                         <option value="SI" <?php echo $destination_country == 'SI' ? 'selected' : "" ?> >Slovenia</option>
                                         <option value="ES" <?php echo $destination_country == 'ES' ? 'selected' : "" ?> >Spain</option>
                                         <option value="SE" <?php echo $destination_country == 'SE' ? 'selected' : "" ?> >Sweden</option>
                                         <option value="CH" <?php echo $destination_country == 'CH' ? 'selected' : "" ?> >Switzerland</option>
-                                        <option value="UA" <?php echo $destination_country == 'UA' ? 'selected' : "" ?> >Ukraine</option>
                                         <option value="GB" <?php echo $destination_country == 'GB' ? 'selected' : "" ?> >United Kingdom</option>
                                     </select>   
                                     <p class="error-valid" id="desti_country_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please select the country</p>
                                 </div>
-                                <div class="col-12 mt-4">
-                                    <label class="form-check-label" for="receiver_city">TYPE THE CITY/TOWN</label>
-                                    <input type="text" name="receiver_city" id="receiver_city" class="form-control" placeholder="Type the city/town">
-                                    <p class="error-valid" id="receiver_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please type the city/town</p>
-                                </div>
-                                <div class="col-12 mt-4">
-                                    <label class="form-check-label" for="receiver_address">FIND THE ADDRESS</label>
-                                    <input type="text" name="receiver_address" id="receiver_address" class="form-control" placeholder="Enter street, house no., city">
-                                    <p class="error-valid" id="receiver_address_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please find the address</p>
+                                <div class="d-flex">
+                                    <div class="col-8 mt-4">
+                                        <label class="form-check-label" for="receiver_city">FIND THE ADDRESS</label>
+                                        <input type="text" name="receiver_city" id="receiver_city" class="form-control" placeholder="Start typing your address">
+                                        <p class="error-valid" id="receiver_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Start typing your address</p>
+                                    </div>
+                                    <div class="col-4 mt-4">
+                                        <label class="form-check-label" for="receiver_address">HOUSE NR</label>
+                                        <input type="text" name="receiver_address" id="receiver_address" class="form-control" placeholder="16A">
+                                        <p class="error-valid" id="receiver_address_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the HOUSE NR</p>
+                                    </div>
                                 </div>
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="receiver">RECEIVER</label>
@@ -235,7 +189,7 @@
                                 </div>
                                 <div class="col-12 mt-4 receiver-phone-input">
                                     <label class="form-check-label" for="receiver_phone">PHONE NUMBER</label>
-                                    <input type="number" name="receiver_phone" class="form-control" id="receiver_phone" placeholder="4155552671"> 
+                                    <input type="number" name="receiver_phone" class="form-control" id="receiver_phone" placeholder="PHONE NUMBER"> 
                                     <p class="error-valid" id="receiver_phone_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the phone number</p>
                                 </div>
                                 <!-- <div class="col-12 mt-4">
@@ -375,21 +329,48 @@
 
                             <h2 class="h5 mt-5">Contact details</h2>
                             <p class="desc-text">You will receive an order confirmation on this email address when you’re done with the payment.</p>
-                            <div class="col-md-4 mt-4">
-                                <label class="form-check-label" for="contact_name">NAME & SURNAME</label>
-                                <input type="text" name="contact_name" class="form-control" id="contact_name">
-                                <p class="error-valid" id="contact_name_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the contact name</p>
-                            </div>
-                            <div class="col-md-4 mt-4">
-                                <label class="form-check-label" for="contact_email">EMAIL ADDRESS</label>
-                                <input type="email" name="contact_email" class="form-control" id="contact_email">
-                                <p class="error-valid" id="contact_email_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the email address</p>
-                            </div>
-                            <div class="col-md-4 mt-4">
-                                <label class="form-check-label" for="contact_phone">PHONE NUMBER</label>
-                                <input name="contact_phone" class="form-control" type="number" id="contact_phone" placeholder="4155552671">
-                                <p class="error-valid" id="contact_phone_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the phone number</p>
-                            </div>
+                            @guest 
+                                <div class="col-md-4 mt-4">
+                                    <label class="form-check-label" for="contact_name">NAME & SURNAME</label>
+                                    <input type="text" name="contact_name" class="form-control" id="contact_name" placeholder="Please enter the contact name">
+                                    <p class="error-valid" id="contact_name_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the contact name</p>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <label class="form-check-label" for="contact_email">EMAIL ADDRESS</label>
+                                    <input type="email" name="contact_email" class="form-control" id="contact_email" placeholder="Please enter the email address">
+                                    <p class="error-valid" id="contact_email_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the email address</p>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <label class="form-check-label" for="contact_phone">PHONE NUMBER</label>
+                                    <input name="contact_phone" class="form-control" type="number" id="contact_phone" placeholder="PHONE NUMBER">
+                                    <p class="error-valid" id="contact_phone_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the phone number</p>
+                                </div>
+                                <div class="d-none">
+                                    <input type="email" name="user_email" class="form-control" id="user_email" placeholder="User email">
+                                    <input type="text" name="user_type" class="form-control" id="user_type" placeholder="User type">
+                                </div>
+                            @else
+                                <div class="col-md-4 mt-4">
+                                    <label class="form-check-label" for="contact_name">NAME & SURNAME</label>
+                                    <input type="text" name="contact_name" class="form-control" id="contact_name" placeholder="{{ Auth::user()->name }}">
+                                    <p class="error-valid" id="contact_name_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the contact name</p>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <label class="form-check-label" for="contact_email">EMAIL ADDRESS</label>
+                                    <input type="email" name="contact_email" class="form-control" id="contact_email" placeholder="{{ Auth::user()->email }}">
+                                    <p class="error-valid" id="contact_email_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the email address</p>
+                                </div>
+                                <div class="col-md-4 mt-4">
+                                    <label class="form-check-label" for="contact_phone">PHONE NUMBER</label>
+                                    <input name="contact_phone" class="form-control" type="number" id="contact_phone" placeholder="PHONE NUMBER">
+                                    <p class="error-valid" id="contact_phone_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the phone number</p>
+                                </div>
+                                <div class="d-none">
+                                    <input type="email" name="user_email" class="form-control" id="user_email" value="{{ Auth::user()->email }}" placeholder="{{ Auth::user()->email }}">
+                                    <input type="text" name="user_type" class="form-control" id="user_type" placeholder="User type" value="{{ Auth::user()->type }}">
+                                </div>
+                            @endguest
+                            
 
                             <div class="col-md-12 mt-4">
                                 <label class="form-check-label" for="contact_note">SPECIAL NOTES - OPTIONAL</label>
@@ -700,6 +681,18 @@
 </div>
 
 <!-- JS -->
+<script>
+    $(document).ready(function() {
+        var user_type = $('#user_type').val();
+        if(user_type == '') {
+            $( "#person_user").prop('checked', true);
+        } else if(user_type == 'person') {
+            $( "#person_user").prop('checked', true);
+        } else if(user_type == 'company') {
+            $( "#company_user").prop('checked', true);
+        }
+    });
+</script>
 <script src="{{asset('js/datepicker.js')}}"></script>
 <script src="{{asset('js/fixed-footer.js')}}"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcUccmFJ_K2m8gV048ha6eoHtfx1XMZPc&libraries=places&v=weekly"></script>
@@ -746,11 +739,11 @@
 
     function initialize() {
         var options_pickup = {
-            types: ['(cities)'],
+            types: ['address'],
             componentRestrictions: { country: pickup_country }
         };
         var options_desti = {
-            types: ['(cities)'],
+            types: ['address'],
             componentRestrictions: { country: destination_country }
         };
         var pickup_location = document.getElementById('sender_city');
@@ -778,7 +771,7 @@
         var cost_val = document.getElementById("cost_val").innerHTML;
 
         if(pickup_location == '' || destination_location == '') {
-            Command: toastr["warning"]("Please type a pickup & destination cities!");
+            Command: toastr["warning"]("Please type a pickup & destination addresses!");
             return;
         }
 
@@ -910,11 +903,11 @@
     }
 
     function focusCheckbox(event) {
-    event.currentTarget.className += ' focus'
+        event.currentTarget.className += ' focus'
     }
 
     function blurCheckbox(event) {
-    event.currentTarget.className = event.currentTarget.className .replace(' focus','')
+        event.currentTarget.className = event.currentTarget.className .replace(' focus','')
     }
 </script>
 
@@ -945,98 +938,118 @@
         var collection_day = $('#datepicker').val();
         var contact_name = $('#contact_name').val();
         var contact_email = $('#contact_email').val();
+        var user_email = $('#user_email').val();
         var contact_phone = $('#contact_phone').val();
         var contact_full_phone = $("input[name='contact_full_phone']").val();
         var contact_note = $('#contact_note').val();
         var term_agree = $('input[name="term_agree"]:checked').val();
+        var price = $('#footer_price').html();
 
         if(who_type == '') {
             $('#who_type_invalid').show();
+            $("#who_type").focus();
         } else {
             $('#who_type_invalid').hide();
         }
         if(pickup_country == '') {
             $('#pickup_country_invalid').show();
+            $("#pickup_country").focus();
         } else {
             $('#pickup_country_invalid').hide();
         }
         if(sender_city == '') {
             $('#sender_city_invalid').show();
+            $("#sender_city").focus();
         } else {
             $('#sender_city_invalid').hide();
         }
         if(sender_address == '') {
             $('#sender_address_invalid').show();
+            $("#sender_address").focus();
         } else {
             $('#sender_address_invalid').hide();
         }
         if(sender == '') {
             $('#sender_invalid').show();
+            $("#sender").focus();
         } else {
             $('#sender_invalid').hide();
         }
         if(sender_phone == '') {
             $('#sender_phone_invalid').show();
+            $("#sender_phone").focus();
         } else {
             $('#sender_phone_invalid').hide();
         }
         if(desti_country == '') {
             $('#desti_country_invalid').show();
+            $("#desti_country").focus();
         } else {
             $('#desti_country_invalid').hide();
         }
         if(receiver_city == '') {
             $('#receiver_city_invalid').show();
+            $("#receiver_city").focus();
         } else {
             $('#receiver_city_invalid').hide();
         }
         if(receiver_address == '') {
             $('#receiver_address_invalid').show();
+            $("#receiver_address").focus();
         } else {
             $('#receiver_address_invalid').hide();
         }
         if(receiver == '') {
             $('#receiver_invalid').show();
+            $("#receiver").focus();
         } else {
             $('#receiver_invalid').hide();
         }
         if(receiver_phone == '') {
             $('#receiver_phone_invalid').show();
+            $("#receiver_phone").focus();
         } else {
             $('#receiver_phone_invalid').hide();
         }
         if(cargo_info == '') {
             $('#cargo_info_invalid').show();
+            $("#cargo_info").focus();
         } else {
             $('#cargo_info_invalid').hide();
         }
         if(cargo_val == '') {
             $('#cargo_val_invalid').show();
+            $("#cargo_val").focus();
         } else {
             $('#cargo_val_invalid').hide();
         }
         if(collection_day == '') {
             $('#collection_day_invalid').show();
+            $("#collection_day").focus();
         } else {
             $('#collection_day_invalid').hide();
         }
         if(contact_name == '') {
             $('#contact_name_invalid').show();
+            $("#contact_name").focus();
         } else {
             $('#contact_name_invalid').hide();
         }
         if(contact_email == '') {
             $('#contact_email_invalid').show();
+            $("#contact_email").focus();
         } else {
             $('#contact_email_invalid').hide();
         }
         if(contact_phone == '') {
             $('#contact_phone_invalid').show();
+            $("#contact_phone").focus();
         } else {
             $('#contact_phone_invalid').hide();
         }
         if(term_agree == '') {
             $('#term_agree_invalid').show();
+            $("#term_agree").focus();
         } else {
             $('#term_agree_invalid').hide();
         }
@@ -1048,29 +1061,16 @@
             return;
         }
 
+        if(price == '') {
+            Command: toastr["warning"]("Please check a price!", "Warning");
+            return;
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
-        toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": true,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
 
         $.ajax({
             type:'POST',
@@ -1099,16 +1099,21 @@
                 collection_day:collection_day, 
                 contact_name:contact_name,
                 contact_email:contact_email,
+                user_email: user_email,
                 contact_phone:contact_phone,
                 contact_full_phone:contact_full_phone,
                 contact_note:contact_note,
                 term_agree: term_agree,
+                price: price,
             },
             success:function(data){
-                if(data.status == '2') {
-                    Command: toastr["success"]("registered successfully", "Success");
+                if(data.status == '5') {
+                    Command: toastr["warning"]("You do not have permission to access for this page.", "Warning");
+                    return false;
+                } else if (data.status == '2') {
+                    Command: toastr["success"]("Valid Request", "Success");
                     setTimeout(() => {
-                        window.location.href = "/login";
+                        window.location.href = "/invoice";
                     }, "3000")
                     return false;
                 } else if(data.status == '1') {
@@ -1118,7 +1123,18 @@
                     printErrorMsg(data.error);
                     return false;
                 }                                          
-            }                
+            },
+            error: function(data) {
+                if(data.status == '401') {
+                    Command: toastr["warning"]("Please login firstly!", "Warning");
+                    setTimeout(() => {
+                        window.location.href = "/login";
+                    }, "3000")
+                    return false;
+                } else {
+                    Command: toastr["error"]("An error occured!", "Error");
+                }
+            }              
         });
     
         function printErrorMsg (msg) {

@@ -15,45 +15,41 @@
                     <h3 class="fredoka">
                         {{ Auth::user()->name }}'s Dashboard
                     </h3>
-                    <!-- <div>
-                        <img class="db-img" src="{{ asset('images/small/dashboard/search.png') }}">
-                        <img class="db-img" src="{{ asset('images/small/dashboard/notification.png') }}">
-                    </div> -->
                 </div>
                 <div class="db-field">
                     <p class="db-subtitle fredoka">Overview</p>
                     <div class="field-content">
                         <div class="field-boxes">
-                            <a href="companyBooking" class="dash-link col-lg-5 col-md-10 col-sm-12 col-12">
+                            <a href="/quote" class="dash-link col-lg-5 col-md-10 col-sm-12 col-12" data-aos="flip-up" data-aos-delay="200">
                                 <div class="field-box">
                                     <div class="fbox-image1">
-                                        <img class="fbox-img" src="{{ asset('img/dashboard/booking.png') }}">
+                                        <i class="fa-solid fa-book-open dashboard-upcoming"></i>
                                     </div>
                                     <div class="fbox-text">
-                                        <h3 class="fbox-num fredoka upcoming-booking" id="upcoming_booking">0</h3>
-                                        <p class="fbox-title">upcoming Booking</p>
+                                        <h3 class="fbox-num fredoka upcoming-booking" id="upcoming_count">0</h3>
+                                        <p class="fbox-title">Upcoming Service</p>
                                     </div>
                                 </div>
                             </a>
-                            <a href="companyQuote" class="dash-link col-lg-5 col-md-10 col-sm-12 col-12">
+                            <a href="/pastQuote" class="dash-link col-lg-5 col-md-10 col-sm-12 col-12" data-aos="flip-up" data-aos-delay="400">
                                 <div class="field-box">
                                     <div class="fbox-image2">
-                                        <img class="fbox-img" src="{{ asset('img/dashboard/quotes.png') }}">
+                                        <i class="fa-solid fa-book dashboard-past"></i>
                                     </div>
                                     <div class="fbox-text">
-                                        <h3 class="fbox-num fredoka upcoming-quote" id="upcoming_quote">0</h3>
-                                        <p class="fbox-title">New Quotes!</p>
+                                        <h3 class="fbox-num fredoka upcoming-quote" id="past_count">0</h3>
+                                        <p class="fbox-title">Past Service</p>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         <div class="db-illustration">
                             <div class="sale-image col-lg-6 col-md-12">
-                                <img class="sale-img" src="{{ asset('img/dashboard/sale.png') }}"> 
+                                <img class="sale-img" src="{{ asset('img/custom/Wavy.png') }}"> 
                             </div>
                             <div class="sale-text col-lg-6 col-md-12">
-                                <p class="sale-title">SELL YOUR CAR WITH AUTOGURU</p>
-                                <p class="sale-description">Did you know you can sell your car quickly and easily with Autoguru? Click here to get a valuation today! Etc </p>
+                                <p class="sale-title">The standard Lorem Ipsum passage, used since the 1500s</p>
+                                <p class="sale-description">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." </p>
                             </div>
                         </div>
                     </div>
@@ -61,17 +57,28 @@
             </div>
         </div>
     </section>
+
+    <script>
+        AOS.init({
+            duration: 1200,
+        })
+    </script>
     <script type="text/javascript">
         $(function () {
-            upcomingCount = {{$upcomingCount}};
-            upcomingRepair = {{$upcomingRepair}};
+            var pastCount = {{$pastCount}};
+            var upcomingCount = {{$upcomingCount}};
+
             if(upcomingCount == '0') {
-                $('#sidebar_booking').hide();
+                $('#upcoming_count').html('0');
+            } else {
+                $('#upcoming_count').html(upcomingCount);    
             }
-            if(upcomingRepair == '0') {
-                $('#sidebar_quote').hide();
+
+            if(pastCount == '0') {
+                $('#past_count').html('0');
+            } else {
+                $('#past_count').html(pastCount);    
             }
-            reloadUpcomming();
         });
     </script>
 @endsection

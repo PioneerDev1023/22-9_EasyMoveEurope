@@ -20,7 +20,8 @@ class UserAccess
             return $next($request);
         }
           
-        return response()->json(['You do not have permission to access for this page.']);
+        // return response()->json(['You do not have permission to access for this page.']);
+        return response()->json(array('status' => 5,'error' => "No permission!"));
         /* return response()->view('errors.check-permission'); */
     }
 }

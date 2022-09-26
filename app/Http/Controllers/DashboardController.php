@@ -27,48 +27,24 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         
-        $comingValue = $this->getCount();
-        $tmpArray = array();
-        $tmpArray = explode('+', $comingValue);
-        
-        $upcomingCount = $tmpArray[0];
-        $upcomingRepair = $tmpArray[1];
-
-        return view('dashboard',[
-            'upcomingCount'=> $upcomingCount,
-            'upcomingRepair'=> $upcomingRepair
-        ]);
-    }
-    public function getCount(){
-        $user_id = auth()->user()->id;
         $user_email = auth()->user()->email;
-        $username = auth()->user()->name;
-        $pDates = DB::table('purchases')->select('date')->where('email',$user_email)->get();
+        $requests = DB::table('requests')->where('user_email',$user_email)->get();
+        $today = now();
         $pastCount = 0;
         $upcomingCount = 0;
-        foreach ($pDates as $pDate) {  
-            if( date('Y-m-d', strtotime($pDate->date)) <= now()) {
+
+        foreach ($requests as $request) {
+            if( date('Y-m-d H-i-s', strtotime($request->collection_day)) <= $today) {
                 $pastCount++;
             } else {
                 $upcomingCount++;
             }
         }
-        
 
-        $pastRepair = 0;
-        $upcomingRepair = 0;
-        $subDate = now()->subDays(5);
-        $rDates = DB::table('repairs')->select('created_at')->where('email',$user_email)->get();
-        foreach ($rDates as $rDate) {
-            if( date('Y-m-d H-i-s', strtotime($rDate->created_at)) <= $subDate) {
-                $pastRepair++;
-            } else {
-                $upcomingRepair++;
-            }
-        }
-        
-        return $upcomingCount . "+" . $upcomingRepair;
+        return view('dashboard',[
+            'pastCount'=> $pastCount,
+            'upcomingCount'=> $upcomingCount
+        ]);
     }
-    
   
 }
