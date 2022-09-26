@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Price;
 use DataTables;
 
-class AdminUserController extends Controller
+class AdminRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class AdminUserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::latest()->where(['type' => '0'])->get();
+            $data = Price::latest()->where(['who_type' => 'person'])->get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -32,7 +31,7 @@ class AdminUserController extends Controller
                     ->make(true);
         }
       
-        return view('admin.adminUser');
+        return view('admin.adminRequest');
     }
 
     /**
@@ -43,44 +42,36 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        $hashed = Hash::make($request->password);
-
-        User::updateOrCreate(['id' => $request->user_id],
-                $request->validate([
-                    'name' => 'required|min:3|max:50',
-                    'email' => 'email',
-                    'password' => 'required|min:8',
-                    'confirm_password' => 'same:password',
-                ]),
+        Price::updateOrCreate(['id' => $request->repair_id],
                 [
-                    'name' => $request->name, 
-                    'email' => $request->email,
-                    'password' => $hashed,
+                    'reg_number' => $request->reg_number, 
+                    'email' => $request->email
                 ]);        
-        return response()->json(['success'=>'User saved successfully.']);
+   
+        return response()->json(['success'=>'Saved successfully.']);
     }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Repair  $repair
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return response()->json($user);
+        $repair = Price::find($id);
+        return response()->json($repair);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Price  $repair
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
+        Price::find($id)->delete();
      
-        return response()->json(['success'=>'User deleted successfully.']);
+        return response()->json(['success'=>'Deleted successfully.']);
     }
 }

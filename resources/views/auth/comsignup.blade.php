@@ -117,7 +117,7 @@
                                     <div class="col-4 p-3">
                                         <div class="van-item">
                                             <label class="d-flex van-label signup-label" for="to_five">
-                                                <input type="radio" class="btn-check" name="tonumber" value="to_five" id="to_five"
+                                                <input type="radio" class="btn-check" name="tonumber" value="<=5" id="to_five"
                                                 autocomplete="off">
                                                 <p class="label-text">  &lt; 5 </p>
                                             </label>
@@ -126,7 +126,7 @@
                                     <div class="col-4 p-3">
                                         <div class="van-item">
                                             <label class="d-flex van-label signup-label" for="to_twenty">
-                                                <input type="radio" class="btn-check" name="tonumber" value="to_twenty" id="to_twenty"
+                                                <input type="radio" class="btn-check" name="tonumber" value="5-20" id="to_twenty"
                                                     autocomplete="off">
                                                 <p class="label-text">5-20</p>
                                             </label>
@@ -135,7 +135,7 @@
                                     <div class="col-4 p-3">
                                         <div class="van-item">
                                             <label class="d-flex van-label signup-label" for="overtwenty">
-                                                <input type="radio" class="btn-check" name="tonumber" value="overtwenty" id="overtwenty"
+                                                <input type="radio" class="btn-check" name="tonumber" value=">=25" id="overtwenty"
                                                     autocomplete="off">
                                                 <p class="label-text"> 25+ </p>
                                             </label>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Repair;
+use App\Models\Price;
 use DataTables;
 
-class AdminRepairController extends Controller
+class AdminComRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class AdminRepairController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Repair::latest()->get();
+            $data = Price::latest()->where(['who_type' => 'company'])->get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -31,7 +31,7 @@ class AdminRepairController extends Controller
                     ->make(true);
         }
       
-        return view('admin.adminRepair');
+        return view('admin.adminComRequest');
     }
 
     /**
@@ -42,13 +42,13 @@ class AdminRepairController extends Controller
      */
     public function store(Request $request)
     {
-        Repair::updateOrCreate(['id' => $request->repair_id],
+        Price::updateOrCreate(['id' => $request->repair_id],
                 [
                     'reg_number' => $request->reg_number, 
                     'email' => $request->email
                 ]);        
    
-        return response()->json(['success'=>'Repair request saved successfully.']);
+        return response()->json(['success'=>'Saved successfully.']);
     }
     /**
      * Show the form for editing the specified resource.
@@ -58,20 +58,20 @@ class AdminRepairController extends Controller
      */
     public function edit($id)
     {
-        $repair = Repair::find($id);
+        $repair = Price::find($id);
         return response()->json($repair);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Repair  $repair
+     * @param  \App\Price  $repair
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Repair::find($id)->delete();
+        Price::find($id)->delete();
      
-        return response()->json(['success'=>'Repair request deleted successfully.']);
+        return response()->json(['success'=>'Deleted successfully.']);
     }
 }

@@ -35,7 +35,7 @@
             })
         </script>
         <link rel="stylesheet" href="{{ asset('css/datatable.css') }}"> 
-        <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
         @yield('style')
     </head>
     <body>
@@ -56,11 +56,11 @@
                         <li class="list-group list-group-flush d-flex mr-5" style="border-bottom:none!important; flex-flow: row;">
                             <a href="adminDashboard" class="list-group-item list-group-item-action">Dashboard</a>
                             <a href="adminUser" class="list-group-item list-group-item-action">Users</a>
-                            <a href="adminLocation" class="list-group-item list-group-item-action">Locations</a>
-                            <a href="adminRepair" class="list-group-item list-group-item-action">Quotes</a>
-                            <a href="#" class="list-group-item list-group-item-action">Reponses</a>
-                            <a href="adminService" class="list-group-item list-group-item-action">Service</a>
-                            <a href="adminCost" class="list-group-item last-list-item list-group-item-action">Cost</a>
+                            <a href="adminCompany" class="list-group-item list-group-item-action">Companies</a>
+                            <!-- <a href="adminLocation" class="list-group-item list-group-item-action">Locations</a> -->
+                            <a href="adminRequest" class="list-group-item list-group-item-action">Requests</a>
+                            <!-- <a href="adminService" class="list-group-item list-group-item-action">Service</a> -->
+                            <!-- <a href="adminCost" class="list-group-item last-list-item list-group-item-action">Cost</a> -->
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link logout-link" href="{{ route('logout') }}"

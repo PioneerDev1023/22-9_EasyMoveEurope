@@ -101,8 +101,10 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('admin/adminDashboard', App\Http\Controllers\Admin\AdminDashboardController::class);
-    Route::resource('admin/adminRepair', App\Http\Controllers\Admin\AdminRepairController::class);
+    Route::resource('admin/adminRequest', App\Http\Controllers\Admin\AdminRequestController::class);
+    Route::resource('admin/adminComRequest', App\Http\Controllers\Admin\AdminComRequestController::class);
     Route::resource('admin/adminUser', App\Http\Controllers\Admin\AdminUserController::class);
+    Route::resource('admin/adminCompany', App\Http\Controllers\Admin\AdminCompanyController::class);
     Route::resource('admin/adminNewUser', App\Http\Controllers\Admin\AdminNewUserController::class);
     Route::resource('admin/adminLocation', App\Http\Controllers\Admin\AdminLocationController::class);
     Route::resource('admin/adminService', App\Http\Controllers\Admin\AdminServiceController::class);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Location;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class AdminDashboardController extends Controller
@@ -17,28 +18,25 @@ class AdminDashboardController extends Controller
      */
     public function index(Request $request)
     {
+        $today = date('Y-m-d');
+
         $users = DB::table('users')->where(['type'=>'0'])->count();
-        $new_users = DB::table('users')->where(['type'=>'0','approve'=>'0'])->count();
-        $services = Service::select('service', DB::raw('count(*) as count'))
-                            ->groupBy('service')
-                            ->get()
-                            ->count();
-        $locations = DB::table('users')
-                            ->groupBy('location')
-                            ->where(['type'=>'2'])
-                            ->get()
-                            ->count();
-        $garages = DB::table('users')->where(['type'=>'2'])->count();
-        $ser_details = DB::table('services')->count();
-        // dd($new_users);
+        $companies = DB::table('users')->where(['type'=>'2'])->count();
+
+        // $pu_requests = DB::table('requests')->where(['who_type'=>'person','collection_day'-> gt($today) ])->count();
+        // $cu_requests = DB::table('requests')->where(['who_type'=>'company','collection_day'-> gt($today) ])->count();
+        
+        $p_requests = DB::table('requests')->where(['who_type'=>'person'])->count();
+        $c_requests = DB::table('requests')->where(['who_type'=>'company'])->count();
+
         return view('admin.adminDashboard', 
                 [
-                    'tuser'=>$users, 
-                    'tgarage'=>$garages, 
-                    'tser_details'=>$ser_details, 
-                    'tlocation'=>$locations, 
-                    'tservice'=>$services,
-                    'tnewuser' =>$new_users
+                    'users'=>$users, 
+                    'companies'=>$companies, 
+                    // 'pu_requests'=>$pu_requests, 
+                    // 'cu_requests'=>$cu_requests, 
+                    'p_requests'=>$p_requests,
+                    'c_requests' =>$c_requests
                 ]);
     }
 

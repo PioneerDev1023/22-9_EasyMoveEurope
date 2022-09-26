@@ -6,7 +6,7 @@
                 <div class="col-md-12 text-right mb-5 d-flex justify-content-between">
                     <h1 class="mt-0 fredoka">Users Management</h1>
                     <div>
-                        <a class="btn btn-primary mt-3" href="adminNewUser" id="user_approve"><i class="fa fa-unlock-alt" aria-hidden="true"></i></a>
+                        <!-- <a class="btn btn-primary mt-3" href="adminNewUser" id="user_approve"><i class="fa fa-unlock-alt" aria-hidden="true"></i></a> -->
                         <a class="btn btn-success mt-3" href="javascript:void(0)" id="createNewProduct"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                     </div>
                 </div>

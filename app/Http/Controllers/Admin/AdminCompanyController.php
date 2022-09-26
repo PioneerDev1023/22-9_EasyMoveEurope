@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use DataTables;
 
-class AdminUserController extends Controller
+class AdminCompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class AdminUserController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::latest()->where(['type' => '0'])->get();
+            $data = User::latest()->where(['type' => '2'],)->get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -32,7 +32,7 @@ class AdminUserController extends Controller
                     ->make(true);
         }
       
-        return view('admin.adminUser');
+        return view('admin.adminCompany');
     }
 
     /**
