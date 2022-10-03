@@ -108,15 +108,10 @@
                                     <p class="error-valid" id="pickup_country_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please select the country</p>
                                 </div>
                                 <div class="d-flex">
-                                    <div class="col-8 mt-4">
+                                    <div class="col-12 mt-4">
                                         <label class="form-check-label" for="sender_city">FIND THE ADDRESS</label>
                                         <input type="text" name="sender_city" id="sender_city" class="form-control" placeholder="Start typing your address">
                                         <p class="error-valid" id="sender_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Start typing your address</p>
-                                    </div>
-                                    <div class="col-4 mt-4">
-                                        <label class="form-check-label" for="sender_address">HOUSE NR</label>
-                                        <input type="text" name="sender_address" id="sender_address" class="form-control" placeholder="16A">
-                                        <p class="error-valid" id="sender_address_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the HOUSE NR</p>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-4">
@@ -171,15 +166,10 @@
                                     <p class="error-valid" id="desti_country_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please select the country</p>
                                 </div>
                                 <div class="d-flex">
-                                    <div class="col-8 mt-4">
+                                    <div class="col-12 mt-4">
                                         <label class="form-check-label" for="receiver_city">FIND THE ADDRESS</label>
                                         <input type="text" name="receiver_city" id="receiver_city" class="form-control" placeholder="Start typing your address">
                                         <p class="error-valid" id="receiver_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Start typing your address</p>
-                                    </div>
-                                    <div class="col-4 mt-4">
-                                        <label class="form-check-label" for="receiver_address">HOUSE NR</label>
-                                        <input type="text" name="receiver_address" id="receiver_address" class="form-control" placeholder="16A">
-                                        <p class="error-valid" id="receiver_address_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the HOUSE NR</p>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-4">
@@ -483,13 +473,6 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <img src="{{ asset('img/icon/epals.svg') }}" alt="" class="me-2" loading="lazy">
-                                                    <span>Epals</span>
-                                                </td>
-                                                <td>10 pallets</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     <img src="{{ asset('img/icon/load-size.svg') }}" alt="" class="me-2" loading="lazy">
                                                     <span>Max load size (cm)</span>
                                                 </td>
@@ -507,7 +490,7 @@
                                                     <img src="{{ asset('img/icon/capacity.svg') }}" alt="" class="me-2" loading="lazy">
                                                     <span>Capacity (m<sup>3</sup>)</span>
                                                 </td>
-                                                <td>24</td>
+                                                <td>19</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -519,7 +502,7 @@
                                             data-bs-target="#planeVanLayout" aria-label="Close">
 
                                         </button>
-                                        <img src="{{ asset('img/icon/plane-van-details.svg') }}" alt="" class="img-fluid" loading="lazy"
+                                        <img src="{{ asset('img/icon/plane-van-details.png') }}" alt="" class="img-fluid" loading="lazy"
                                             data-xblocker="passed" style="visibility: visible;">
                                     </div>
                                     <p class="fw-bold text-uppercase">Plane van is best for:</p>
@@ -540,12 +523,6 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td><img src="{{ asset('img/icon/epals.svg') }}" alt="" class="me-2" loading="lazy">
-                                                    <span>Epals</span>
-                                                </td>
-                                                <td>6 pallets</td>
-                                            </tr>
-                                            <tr>
                                                 <td><img src="{{ asset('img/icon/load-size.svg') }}" alt="" class="me-2" loading="lazy">
                                                     <span>Max load size (cm)</span>
                                                 </td>
@@ -561,7 +538,7 @@
                                                 <td><img src="{{ asset('img/icon/capacity.svg') }}" alt="" class="me-2" loading="lazy">
                                                     <span>Capacity (m<sup>3</sup>)</span>
                                                 </td>
-                                                <td>10</td>
+                                                <td>13</td>
                                             </tr>
                                         </tbody>
                                     </table><button type="button"
@@ -573,7 +550,7 @@
                                             class="btn-close float-end" data-bs-toggle="collapse"
                                             data-bs-target="#boxVanLayout" aria-label="Close">
                                         </button> 
-                                        <img src="{{ asset('img/icon/box-van-details.svg') }}" alt="" class="img-fluid" loading="lazy"
+                                        <img src="{{ asset('img/icon/box-van-details.png') }}" alt="" class="img-fluid" loading="lazy"
                                             data-xblocker="passed" style="visibility: visible;">
                                     </div>
                                     <p class="fw-bold text-uppercase">Box van is best for:</p>
@@ -591,7 +568,6 @@
                     <div class="my-2 ms-3"><a href="#" class="text-body fw-bold" data-bs-dismiss="modal">Close</a></div>
                     <div class="row g-2 py-2 text-uppercase text-center heading" style="font-size: 12px;">
                         <div class="col-4 ps-5 text-start">Type</div>
-                        <div class="col-1">Epals</div>
                         <div class="col-2"><img src="{{ asset('img/icon/load-size.svg') }}" alt="" loading="lazy"> <span>Max load size
                                 (cm)</span></div>
                         <div class="col-2"><img src="{{ asset('img/icon/weight.svg') }}" alt="" loading="lazy"> <span>Max weight
@@ -608,17 +584,16 @@
                                     <div class="col-4 text-start"><img src="{{ asset('img/icon/plane-van-big.svg') }}"
                                             alt="" class="me-4" loading="lazy"> <strong class="text-primary">Plane
                                             van</strong></div>
-                                    <div class="col-1">10</div>
                                     <div class="col-2">420 x 210 x 230</div>
                                     <div class="col-2">1000</div>
-                                    <div class="col-2">24</div>
+                                    <div class="col-2">19</div>
                                 </button></div>
                             <div id="planeVanCollapse" class="accordion-collapse collapse"
                                 data-bs-parent="#limitsAccordion" style="">
                                 <div class="accordion-body">
                                     <div class="row align-items-center">
                                         <div class="col-md-7 mb-2"><img
-                                                src="{{ asset('img/icon/plane-van-details.svg') }}" alt=""
+                                                src="{{ asset('img/icon/plane-van-details.png') }}" alt=""
                                                 class="img-fluid" loading="lazy" data-xblocker="passed"
                                                 style="visibility: visible;"></div>
                                         <div class="col-md-5">
@@ -645,16 +620,15 @@
                                             alt="" class="ms-2 me-5" loading="lazy">
                                         <strong class="text-primary">Box van</strong>
                                     </div>
-                                    <div class="col-1">6</div>
                                     <div class="col-2">420 x 175 x 180</div>
                                     <div class="col-2">1000</div>
-                                    <div class="col-2">10</div>
+                                    <div class="col-2">13</div>
                                 </button></div>
                             <div id="boxVanCollapse" class="accordion-collapse collapse"
                                 data-bs-parent="#limitsAccordion" style="">
                                 <div class="accordion-body">
                                     <div class="row align-items-center">
-                                        <div class="col-md-7 mb-2"><img src="{{ asset('img/icon/box-van-details.svg') }}" alt=""
+                                        <div class="col-md-7 mb-2"><img src="{{ asset('img/icon/box-van-details.png') }}" alt=""
                                                 class="img-fluid" loading="lazy" data-xblocker="passed"
                                                 style="visibility: visible;"></div>
                                         <div class="col-md-5">
@@ -919,13 +893,11 @@
         var who_type = $('input[name="who_type"]:checked').val();
         var pickup_country = $('#pickup_country').val();
         var sender_city = $('#sender_city').val();
-        var sender_address = $('#sender_address').val();
         var sender = $('#sender').val();
         var sender_phone = $('#sender_phone').val();
         var sender_full_phone = $("input[name='sender_full_phone']").val();
         var desti_country = $('#desti_country').val();
         var receiver_city = $('#receiver_city').val();
-        var receiver_address = $('#receiver_address').val();
         var receiver = $('#receiver').val();
         var receiver_phone = $('#receiver_phone').val();
         var receiver_full_phone = $("input[name='receiver_full_phone']").val();
@@ -963,12 +935,6 @@
         } else {
             $('#sender_city_invalid').hide();
         }
-        if(sender_address == '') {
-            $('#sender_address_invalid').show();
-            $("#sender_address").focus();
-        } else {
-            $('#sender_address_invalid').hide();
-        }
         if(sender == '') {
             $('#sender_invalid').show();
             $("#sender").focus();
@@ -992,12 +958,6 @@
             $("#receiver_city").focus();
         } else {
             $('#receiver_city_invalid').hide();
-        }
-        if(receiver_address == '') {
-            $('#receiver_address_invalid').show();
-            $("#receiver_address").focus();
-        } else {
-            $('#receiver_address_invalid').hide();
         }
         if(receiver == '') {
             $('#receiver_invalid').show();
@@ -1054,8 +1014,8 @@
             $('#term_agree_invalid').hide();
         }
         
-        if(who_type == '' || pickup_country == '' || sender_city == '' || sender_address == '' || sender == '' || 
-        sender_phone == '' || desti_country == '' || receiver_city == '' || receiver_address == '' || receiver == '' || 
+        if(who_type == '' || pickup_country == '' || sender_city == '' || sender == '' || 
+        sender_phone == '' || desti_country == '' || receiver_city == '' || receiver == '' || 
         receiver_phone == '' || cargo_info == '' || cargo_val == '' || collection_day == '' || contact_name == '' || 
         contact_email == '' || contact_phone == '' || term_agree == '') {
             return;
@@ -1080,13 +1040,11 @@
                 who_type:who_type, 
                 pickup_country:pickup_country,
                 sender_city:sender_city,
-                sender_address:sender_address,
                 sender:sender, 
                 sender_phone:sender_phone,
                 sender_full_phone:sender_full_phone,
                 desti_country:desti_country,
                 receiver_city:receiver_city,
-                receiver_address:receiver_address, 
                 receiver:receiver,
                 receiver_phone:receiver_phone,
                 receiver_full_phone:receiver_full_phone,

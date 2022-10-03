@@ -81,7 +81,7 @@
     font-weight: 600;
 }
 .submitbtn {
-    background-color: transparent!important;
+    /* background-color: transparent!important; */
     border-color: white;
     padding: 15px 30px;
     border: 1px solid white;

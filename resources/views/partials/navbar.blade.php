@@ -11,7 +11,6 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/" class="active">Home</a></li>
           <li><a href="/service">How it works</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/about">About us</a></li>

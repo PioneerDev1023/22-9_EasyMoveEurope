@@ -100,8 +100,7 @@
                         </div>
                     </div>
                     <div class="submit-button">
-                        <button type="submit" class="submitbtn">Continue</button>
-                        <!-- <button type="submit" class="submitbtn btn btn-primary">Continue</button> -->
+                        <button type="submit" class="submitbtn btn btn-primary">Continue</button>
                     </div>
                 </form>
             </div>
