@@ -42,7 +42,7 @@
                                 <div class="d-flex flex-wrap van-type-section">
                                     <div class="col-md-6 col-sm-12 col-12 mb-2">
                                         <div class="van-item me-1 d-flex justify-content-between px-3">
-                                            <label class="d-flex van-label" for="company_user">
+                                            <label class="d-flex van-label user-label" for="company_user">
                                                 <input type="radio" class="btn-check first-checkbtn" name="who_type" value="company" id="company_user"
                                                 autocomplete="off">
                                                 <img src="{{ asset('img/icon/enterprise.png') }}" class="me-2" alt="" height="50"
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-12">
                                         <div class="van-item ms-1 d-flex justify-content-between px-3">
-                                            <label class="d-flex van-label" for="person_user">
+                                            <label class="d-flex van-label user-label" for="person_user">
                                                 <input type="radio" class="btn-check first-checkbtn" name="who_type" value="person" id="person_user"
                                                     autocomplete="off">
                                                 <img src="{{ asset('img/icon/person.png') }}" class="me-2" alt="" height="50"
@@ -66,15 +66,34 @@
                             </div>
                         </div>
                         <div class="d-none">
-                            <p id="ini_pickup_country" class="d-none">{{$pickup_country}}</P>
-                            <p id="ini_desti_country" class="d-none">{{$destination_country}}</P>
+                            pickup_country<p id="ini_pickup_country" class="">{{$pickup_country}}</P>
+                            destination_country<p id="ini_desti_country" class="">{{$destination_country}}</P>
+                            <div> 
+                                @foreach($pickup_prices as $key => $pickup_price)                                
+                                    pickup_box_price<p id="pickup_box_price" class="">{{ $pickup_price->box_min }}</P>
+                                    pickup_curtain_price<p id="pickup_curtain_price" class="">{{ $pickup_price->curtain_min }}</P>
+                                    pickup_short_price<p id="pickup_short_price" class="">{{ $pickup_price->short_price }}</P>
+                                    pickup_long_price<p id="pickup_long_price" class="">{{ $pickup_price->long_price }}</P>
+                                @endforeach
+                            </div>
+                            <div>
+                                @foreach($destination_prices as $key => $destination_price)                                
+                                    destination_box_price<p id="destination_box_price" class="">{{ $destination_price->box_min }}</P>
+                                    destination_curtain_price<p id="destination_curtain_price" class="">{{ $destination_price->curtain_min }}</P>
+                                    destination_short_price<p id="destination_short_price" class="">{{ $destination_price->short_price }}</P>
+                                    destination_long_price<p id="destination_long_price" class="">{{ $destination_price->long_price }}</P>
+                                @endforeach
+                            </div>
                         </div>
                         <div class="row mt-5 personal-section">
                             <div class="col-12 col-md-6 personal-infos mb-3">
                                 <h2 class="h5"><span>Pickup Address</span></h2>
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="pickup_country">COUNTRY</label>
-                                    <select id="pickup_country" name="pickup_country" class="pickup-country" onChange="pickupFunction(this);">
+                                    @foreach($pickup_prices as $key => $pickup_price)     
+                                        <input type="text" name="pickup_country" id="pickup_country" value="{{ $pickup_price->country }}" class="form-control pickup-country" placeholder="Pickup Country" disabled>                           
+                                    @endforeach
+                                    <!-- <select id="pickup_country" name="pickup_country" class="pickup-country" onChange="pickupFunction(this);">
                                         <option value="AT" <?php echo $pickup_country == 'AT' ? 'selected' : "" ?> >Austria</option>
                                         <option value="BE" <?php echo $pickup_country == 'BE' ? 'selected' : "" ?> >Belgium</option>
                                         <option value="BG" <?php echo $pickup_country == 'BG' ? 'selected' : "" ?> >Bulgaria</option>
@@ -104,7 +123,7 @@
                                         <option value="SE" <?php echo $pickup_country == 'SE' ? 'selected' : "" ?> >Sweden</option>
                                         <option value="CH" <?php echo $pickup_country == 'CH' ? 'selected' : "" ?> >Switzerland</option>
                                         <option value="GB" <?php echo $pickup_country == 'GB' ? 'selected' : "" ?> >United Kingdom</option>
-                                    </select>   
+                                    </select>    -->
                                     <p class="error-valid" id="pickup_country_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please select the country</p>
                                 </div>
                                 <div class="d-flex">
@@ -132,7 +151,10 @@
                                 <h2 class="h5"><span>Delivery Address</span></h2>
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="desti_country">COUNTRY</label>
-                                    <select id="desti_country" name="desti_country" class="desti-country" onChange="destiFunction(this);">
+                                    @foreach($destination_prices as $key => $destination_price)     
+                                        <input type="text" name="desti_country" id="desti_country" value="{{ $destination_price->country }}" class="form-control desti-country" placeholder="Destination Country" disabled>
+                                    @endforeach
+                                    <!-- <select id="desti_country" name="desti_country" class="desti-country" onChange="destiFunction(this);">
                                         <option value="AT" <?php echo $destination_country == 'AT' ? 'selected' : "" ?> >Austria</option>
                                         <option value="BE" <?php echo $destination_country == 'BE' ? 'selected' : "" ?> >Belgium</option>
                                         <option value="BG" <?php echo $destination_country == 'BG' ? 'selected' : "" ?> >Bulgaria</option>
@@ -162,7 +184,7 @@
                                         <option value="SE" <?php echo $destination_country == 'SE' ? 'selected' : "" ?> >Sweden</option>
                                         <option value="CH" <?php echo $destination_country == 'CH' ? 'selected' : "" ?> >Switzerland</option>
                                         <option value="GB" <?php echo $destination_country == 'GB' ? 'selected' : "" ?> >United Kingdom</option>
-                                    </select>   
+                                    </select>    -->
                                     <p class="error-valid" id="desti_country_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please select the country</p>
                                 </div>
                                 <div class="d-flex">
@@ -186,47 +208,56 @@
                                     <button type="text" class="form-control" name="receiver_btn" id="receiver_btn">Add another delivery address</button>
                                 </div> -->
                             </div>
-                            <div class="calculator d-flex flex-wrap">
-                                <div class="col-lg-4 col-4">
-                                    <button type="button" class="btn esti-btn my-3" onclick="esti_calc()">Get a price</button>
-                                    <div class="esti-prices">
-                                        <p id="distance_value">Distance: <span id="distance_val" class="esti-price"></span></p>
-                                        <p id="duration_value">Duration: <span id="duration_val" class="esti-price"></span></p>
-                                        <p id="cost_value" class="d-none">Cost per km: <span id="cost_val" class="esti-price">2</span></p>
-                                        <p id="estimation_value">Price(€): <span id="estimation_val" class="esti-price"></span></p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-8">
-                                    <div id="map"></div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="mt-3 van-section">
                             <label class="order-label" style="margin-bottom: 25px;">Select Van Type</label>
                             <div class="d-flex flex-wrap van-type-section">
                                 <div class="col-lg-6 col-12 mb-2">
-                                    <div class="van-item me-1 d-flex justify-content-between px-3">
-                                        <label class="d-flex van-label" for="plane_van" onclick="tail_show()">
-                                            <input type="radio" class="btn-check" name="van_type" value="plane" id="plane_van" 
-                                            autocomplete="off">
-                                            <img src="{{ asset('img/icon/large_van.svg') }}" class="me-2" height="50"
-                                                loading="lazy">
-                                            <h2 class="van-type-text">Curtain sider</h2>
+                                    <div class="van-item d-flex justify-content-between px-3">
+                                        <label class="d-flex flex-wrap van-label" for="plane_van" onclick="tail_show()">
+                                            <div class="col-md-2 col-4">
+                                                <input type="radio" class="btn-check" name="van_type" value="plane" id="plane_van" autocomplete="off">
+                                            </div>
+                                            <div class="col-md-4 col-8">
+                                                <img src="{{ asset('img/icon/large_van.svg') }}" class="me-2" height="50" loading="lazy">
+                                            </div>
+                                            <div class="col-md-5 col-11">
+                                                <h2 class="van-type-text">Curtain sider</h2>
+                                                <div>
+                                                    <p class="van-type-info">Size: 420 x 210 x 230</p>
+                                                    <p class="van-type-info">Weight: 1000 kg</p>
+                                                    <p class="van-type-info">Capacity: 19 Cubic</p>
+                                                </div>
+                                            </div>              
                                             <!-- Button trigger modal -->
-                                            <i class="fa-solid fa-circle-info van-info" data-bs-toggle="modal" data-bs-target="#van-type-modal"></i>
+                                            <div class="col-md-1 col-1">
+                                                <i class="fa-solid fa-circle-info van-info" data-bs-toggle="modal" data-bs-target="#van-type-modal"></i>                                                
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <div class="van-item ms-1 d-flex justify-content-between px-3">
-                                        <label class="d-flex van-label" for="box_van" onclick="tail_hide()">
-                                            <input type="radio" class="btn-check" name="van_type" value="box" id="box_van" checked="checked"
-                                                autocomplete="off">
-                                            <img src="{{ asset('img/icon/small_van.svg') }}" class="me-2" alt="" height="50"
-                                                loading="lazy">
-                                            <h2 class="van-type-text">Box</h2>
+                                    <div class="van-item d-flex justify-content-between px-3">
+                                        <label class="d-flex flex-wrap van-label" for="box_van" onclick="tail_hide()">
+                                            <div class="col-md-2 col-4">
+                                                <input type="radio" class="btn-check" name="van_type" value="box" id="box_van" checked="checked" autocomplete="off">
+                                            </div>
+                                            <div class="col-md-4 col-8">
+                                                <img src="{{ asset('img/icon/small_van.svg') }}" class="me-2" alt="" height="50" loading="lazy">
+                                            </div>
+                                            <div class="col-md-5 col-11">
+                                                <h2 class="van-type-text">Box</h2>
+                                                <div>
+                                                    <p class="van-type-info">Size: 420 x 175 x 180</p>
+                                                    <p class="van-type-info">Weight: 1000 kg</p>
+                                                    <p class="van-type-info">Capacity: 13 Cubic</p>
+                                                </div>
+                                            </div>
                                             <!-- Button trigger modal -->
-                                            <i class="fa-solid fa-circle-info van-info" data-bs-toggle="modal" data-bs-target="#van-type-modal"></i>
+                                            <div class="col-md-1 col-1">
+                                                <i class="fa-solid fa-circle-info van-info" data-bs-toggle="modal" data-bs-target="#van-type-modal"></i>
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
@@ -379,8 +410,22 @@
                         <div class="alert alert-danger print-error-msg">
                             <ul></ul>
                         </div>
-                        <div class="col-12 text-center d-flex flex-wrap justify-content-between" id="service_footer">
-                            <div class="col-md-6 col-9 d-flex justify-content-center mb-3">
+                        <div class="calculator d-flex flex-wrap">
+                            <div class="col-md-4 col-4">
+                                <button type="button" class="btn esti-btn my-3" onclick="esti_calc()">Get a price</button>
+                                <div class="esti-prices">
+                                    <p id="distance_value">Distance: <span id="distance_val" class="esti-price"></span></p>
+                                    <p id="duration_value">Duration: <span id="duration_val" class="esti-price"></span></p>
+                                    <p id="price_value">Price: € <span id="price_val" class="esti-price"></span></p>
+                                    <p id="cost_value" class="d-none">Cost per km: <span id="cost_val" class="esti-price">2</span></p>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-8">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center d-flex flex-wrap justify-content-between mt-3" id="service_footer">
+                            <div class="col-md-4 col-sm-9 col-9 d-flex justify-content-center mb-3 mx-auto">
                                 <div class="">
                                     <p>From</p>
                                     <h3 class="pickup-footer"></h3>
@@ -395,10 +440,13 @@
                                     <h3 class="desti-footer"></h3>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-3 measure-cell">
-                                <h3>Price: € <span id="footer_price" class="esti-price"></span></h3>
+                            <!-- <div class="col-md-3 col-sm-6 col-6 measure-cell">
+                                <h3 class="where-country">Distance: <span id="footer_distance" class="esti-price"></span></h3>
                             </div>
-                            <div class="col-md-3 col-12 measure-cell">
+                            <div class="col-md-3 col-sm-3 col-3 measure-cell">
+                                <h3>Price: € <span id="footer_price" class="esti-price"></span></h3>
+                            </div> -->
+                            <div class="col-md-2 col-sm-12 col-12 measure-cell">
                                 <button type="submit" id="submitbtn">Continue</button>
                             </div>
                         </div>
@@ -660,7 +708,7 @@
         var user_type = $('#user_type').val();
         if(user_type == '') {
             $( "#person_user").prop('checked', true);
-        } else if(user_type == 'person') {
+        } else if(user_type == 'user') {
             $( "#person_user").prop('checked', true);
         } else if(user_type == 'company') {
             $( "#company_user").prop('checked', true);
@@ -680,8 +728,10 @@
     }
 
     // Setting the pickup and destination country
-    var iniPickup = $("#pickup_country option:selected").text();
-    var iniDesti = $("#desti_country option:selected").text();
+    var iniPickup = $("#pickup_country").val();
+    var iniDesti = $("#desti_country").val();
+    // var iniPickup = $("#pickup_country option:selected").text();
+    // var iniDesti = $("#desti_country option:selected").text();
     
     $(".pickup-footer").text(iniPickup);
     $(".desti-footer").text(iniDesti);
@@ -794,14 +844,90 @@
                     }
                 }
             }
+
+            var pickup_country = $('#pickup_country').val();
+            var desti_country = $('#desti_country').val();
+
+            var pickup_box_price = $('#pickup_box_price').html();
+            var pickup_curtain_price = $('#pickup_curtain_price').html();
+            var pickup_short_price = $('#pickup_short_price').html();
+            var pickup_long_price = $('#pickup_long_price').html();
+
+            var destination_box_price = $('#destination_box_price').html();
+            var destination_curtain_price = $('#destination_curtain_price').html();
+            var destination_short_price = $('#destination_short_price').html();
+            var destination_long_price = $('#destination_long_price').html();
+            
+            var iniPickup = $("#pickup_country option:selected").text();
+            var iniDesti = $("#desti_country option:selected").text();
+            var van_type = $("input[name='van_type']:checked").val();
+            var rest_distance = (distance_value - 500000) / 1000;
+
+            var collection_day = $('#datepicker').val();
+            var today = new Date().toISOString().slice(0, 10);
+
+            if (van_type == 'box') {
+                if (pickup_box_price == destination_box_price) {
+                    var min_price = pickup_box_price;
+                } else if (pickup_box_price > destination_box_price) {
+                    var min_price = pickup_box_price;
+                } else if (pickup_box_price < destination_box_price) {
+                    var min_price = destination_box_price;
+                }
+            } else if (van_type == 'plane') {
+                if (pickup_curtain_price == destination_curtain_price) {
+                    var min_price = pickup_curtain_price;
+                } else if (pickup_curtain_price > destination_curtain_price) {
+                    var min_price = pickup_curtain_price;
+                } else if (pickup_curtain_price < destination_curtain_price) {
+                    var min_price = destination_curtain_price;
+                }
+            }          
+
+            if (distance_value < '500000') {
+                var real_price = min_price;                 
+            } else if (distance_value > '1000000') {
+                var add_price = rest_distance * 0.93;
+                var real_price = (Number(min_price) + Number(add_price)).toFixed(2);
+            } else if ('500000' < distance_value < '1000000') {
+                var add_price = rest_distance * 1.03;
+                var real_price = (Number(min_price) + Number(add_price)).toFixed(2);
+            }
+
+            if(pickup_country == desti_country) {
+                var real_price = Number(real_price) + 150;
+                console.log("1");
+            }
+
+            if($('input[name="help_loading"] option:selected')) {
+                var real_price = Number(real_price) + 83.3;
+                console.log("2");
+            }
+
+            if($('input[name="help_unloading"] option:selected')) {
+                var real_price = Number(real_price) + 83.3;
+                console.log("3");
+            }
+
+            if($('input[name="tail_lift"] option:selected')) {
+                var real_price = Number(real_price) + 166.6;
+                console.log("4");
+            }
+            if(collection_day == today) {
+                var real_price = Number(real_price + 95.2);
+                console.log("5");
+            }
+
+            var real_price = (real_price).toFixed(2);
+
             var result_cost = distance_value * cost_val / 1000;
-            var result_cost = Math.round(result_cost);
+            var result_cost = (result_cost).toFixed(2);
+
             document.getElementById("distance_val").innerHTML = distance;
             document.getElementById("fixed_footer_distance").innerHTML = distance;
             document.getElementById("duration_val").innerHTML = duration;
-            document.getElementById("estimation_val").innerHTML = result_cost;
-            document.getElementById("fixed_footer_price").innerHTML = result_cost;
-            document.getElementById("footer_price").innerHTML = result_cost;
+            document.getElementById("price_val").innerHTML = real_price;
+            document.getElementById("fixed_footer_price").innerHTML = real_price;
         }
     }
 
@@ -902,8 +1028,8 @@
         var receiver_phone = $('#receiver_phone').val();
         var receiver_full_phone = $("input[name='receiver_full_phone']").val();
         var van_type = $('input[name="van_type"]:checked').val();
-        var help_loading = $('input[name="help_loading"]').val();
-        var help_unloading = $('input[name="help_unloading"]').val();
+        var help_loading = $('input[name="help_loading"].checked').val();
+        var help_unloading = $('input[name="help_unloading"]:checked').val();
         var tail_lift = $('input[name="tail_lift"]').val();
         var cargo_info = $('#cargo_info').val();
         var cargo_val = $('#cargo_val').val();
@@ -915,7 +1041,7 @@
         var contact_full_phone = $("input[name='contact_full_phone']").val();
         var contact_note = $('#contact_note').val();
         var term_agree = $('input[name="term_agree"]:checked').val();
-        var price = $('#footer_price').html();
+        var price = $('#price_val').html();
 
         if(who_type == '') {
             $('#who_type_invalid').show();

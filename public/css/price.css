@@ -22,8 +22,11 @@
   opacity:1;
 }
 .van-type-text {
-  margin:auto 25px;
   font-size: 20px;
+  margin-top: 10px;
+}
+.van-type-info {
+  margin-bottom: 0px!important;
 }
 .order-type-text {
   margin:auto 25px; 
@@ -88,4 +91,16 @@
 }
 .img-fluid {
   width: 250px;
+}
+#footer_distance {
+  text-transform: lowercase;
+}
+.where-text {
+  padding-bottom: 5px;
+}
+#pickup_country {
+  background-color: white;
+}
+#desti_country {
+  background-color: white;
 }

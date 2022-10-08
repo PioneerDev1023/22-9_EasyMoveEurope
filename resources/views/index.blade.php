@@ -16,8 +16,8 @@
                 <form class="form-search mb-3" data-aos="fade-up" data-aos-delay="200" action="{{ route('price.index') }}" method="POST">
                     @csrf
                     <div>
-                        <div class="d-flex justify-content-between mt-3">
-                            <div class="col-6">
+                        <div class="d-flex justify-content-between flex-wrap mt-3">
+                            <div class="col-md-6 col-12">
                                 <div class="me-1">
                                     <label>From (Pickup Country)</label>
                                     <div class="d-flex">
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6 col-12">
                                 <div class="ms-1">
                                     <label>To (Delivery Country)</label>
                                     <div class="d-flex">

@@ -48,11 +48,9 @@ All Normal Users Routes List
         return view('whosignup');
     });
     
-    Route::get('price', function() { 
-        return redirect('/'); 
-    });
+    Route::get('price', function() { return redirect('/'); });
     Route::post('priceIndex',[App\Http\Controllers\PriceController::class, 'index'])->name('price.index');
-    
+    Route::post('priceCreate',[App\Http\Controllers\PriceController::class, 'create'])->name('price.create');
 
     Route::get('/invoice', function () {
         return view('invoice');
@@ -74,8 +72,6 @@ All Normal Users Routes List
     Route::get('sendMail', [App\Http\Controllers\MailController::class, 'index']);
 
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::post('priceCreate',[App\Http\Controllers\PriceController::class, 'create'])->name('price.create');
-
     Route::post('repair',[App\Http\Controllers\RepairController::class, 'store'])->name('repair.store');
     Route::get('repairConfirm', function () { return view('repairConfirm');})->name('repairConfirm');
     
@@ -117,8 +113,6 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:company'])->group(function () {
-    Route::post('priceCreate',[App\Http\Controllers\PriceController::class, 'create'])->name('price.create');
-
     Route::get('/company/companyDashboard', [App\Http\Controllers\company\CompanyDashboardController::class, 'index'])->name('company.companyDashboard');
     Route::get('/company/companyQuote', [App\Http\Controllers\company\CompanyQuoteController::class, 'index'])->name('company.companyQuote');
     Route::get('/company/companyPastQuote', [App\Http\Controllers\company\CompanyQuoteController::class, 'past'])->name('company.companyPastQuote');

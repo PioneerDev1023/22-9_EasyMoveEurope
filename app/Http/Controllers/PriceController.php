@@ -7,6 +7,7 @@ use App\Models\Price;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Quote;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use Log;
   
 class PriceController extends Controller
@@ -20,10 +21,16 @@ class PriceController extends Controller
     {
         $pickup_country = $request->pickup_country;
         $destination_country = $request->destination_country;
-        
+
+
+        $pickup_prices = DB::table('countries')->where('abbreviation',$pickup_country)->get();
+        $destination_prices = DB::table('countries')->where('abbreviation',$destination_country)->get();
+
         return view('price',[
             'pickup_country'=> $pickup_country,
             'destination_country'=> $destination_country,
+            'pickup_prices'=> $pickup_prices,
+            'destination_prices'=> $destination_prices,
         ]);
     }
      
@@ -58,6 +65,7 @@ class PriceController extends Controller
             ],
             [
                 'term_agree.required' => 'Please read and accept the Terms and Conditions of EasyMoveEurope!',
+                'price.required' => 'Please get a price before continuance!',
             ]
         );
 
@@ -103,4 +111,5 @@ class PriceController extends Controller
         return response()->json(array('status' => 2,'msg' => "Successfully Submitted"));
           
     }
+    
 }

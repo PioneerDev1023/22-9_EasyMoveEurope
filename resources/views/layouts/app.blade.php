@@ -28,10 +28,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/header&footer.css') }}">
-
     <!-- Vendor CSS Files -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -39,6 +35,11 @@
     <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
+
+    <!-- Styles -->
+    
+    <link rel="stylesheet" href="{{ asset('css/header&footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
