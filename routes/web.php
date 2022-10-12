@@ -53,7 +53,8 @@ All Normal Users Routes List
     Route::post('priceCreate',[App\Http\Controllers\PriceController::class, 'create'])->name('price.create');
 
     Route::get('/invoice', function () {
-        return view('invoice');
+        $reqItems = DB::table('requests')->latest()->take(1)->get();
+        return view('invoice', ['reqItems'=> $reqItems]);
     });
 
     Route::get('repair', function () {

@@ -129,7 +129,7 @@
                                 <div class="d-flex">
                                     <div class="col-12 mt-4">
                                         <label class="form-check-label" for="sender_city">FIND THE ADDRESS</label>
-                                        <input type="text" name="sender_city" id="sender_city" class="form-control" placeholder="Start typing your address">
+                                        <input type="text" name="sender_city" id="sender_city" class="form-control" onchange="esti_calc()" placeholder="Start typing your address">
                                         <p class="error-valid" id="sender_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Start typing your address</p>
                                     </div>
                                 </div>
@@ -190,14 +190,14 @@
                                 <div class="d-flex">
                                     <div class="col-12 mt-4">
                                         <label class="form-check-label" for="receiver_city">FIND THE ADDRESS</label>
-                                        <input type="text" name="receiver_city" id="receiver_city" class="form-control" placeholder="Start typing your address">
+                                        <input type="text" name="receiver_city" id="receiver_city" class="form-control" onchange="esti_calc()" placeholder="Start typing your address">
                                         <p class="error-valid" id="receiver_city_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Start typing your address</p>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-4">
                                     <label class="form-check-label" for="receiver">RECEIVER</label>
                                     <input type="text" name="receiver" id="receiver" class="form-control" placeholder="Name & Surname">
-                                    <p class="error-valid" id="receiver_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please find the receiver name</p>
+                                    <p class="error-valid" id="receiver_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the receiver name</p>
                                 </div>
                                 <div class="col-12 mt-4 receiver-phone-input">
                                     <label class="form-check-label" for="receiver_phone">PHONE NUMBER</label>
@@ -215,7 +215,7 @@
                             <div class="d-flex flex-wrap van-type-section">
                                 <div class="col-lg-6 col-12 mb-2">
                                     <div class="van-item d-flex justify-content-between px-3">
-                                        <label class="d-flex flex-wrap van-label" for="plane_van" onclick="tail_show()">
+                                        <label class="d-flex flex-wrap van-label" for="plane_van" onclick="tail_show()" onchange="esti_calc()">
                                             <div class="col-md-2 col-4">
                                                 <input type="radio" class="btn-check" name="van_type" value="plane" id="plane_van" autocomplete="off">
                                             </div>
@@ -239,7 +239,7 @@
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="van-item d-flex justify-content-between px-3">
-                                        <label class="d-flex flex-wrap van-label" for="box_van" onclick="tail_hide()">
+                                        <label class="d-flex flex-wrap van-label" for="box_van" onclick="tail_hide()" onchange="esti_calc()">
                                             <div class="col-md-2 col-4">
                                                 <input type="radio" class="btn-check" name="van_type" value="box" id="box_van" checked="checked" autocomplete="off">
                                             </div>
@@ -268,6 +268,7 @@
                             <div class="service-options d-flex">
                                 <div class="col-md-4 col-12 service-option">
                                     <div class="service-cell"
+                                        id="help_loading_card"
                                         aria-checked="false"
                                         tabindex="0"
                                         onkeydown="toggleCheckbox(event)"
@@ -275,17 +276,18 @@
                                         onfocus="focusCheckbox(event)"
                                         onblur="blurCheckbox(event)">
 
-                                        <input type="option" name="help_loading" value="loading" id="loading" class="d-none">
+                                        <input type="checkbox" name="help_loading" value="loading" id="loading" class="d-none">
                                         <div class="col-lg-3 col-12 check-image">
                                             <img class="check-img" src="{{ asset('img/icon/checkbox-unchecked-black.png') }}" alt="">
                                             <p class="check-text">83.30€</p>
                                         </div>
                                         <p class="service-text col-lg-5 col-12">Driver help - Loading</p>
                                         <img class="flat-img col-lg-4 col-12" src="{{ asset('img/icon/delivery-man.png') }}" alt="">
-                                </div>
+                                    </div>
                                 </div>    
                                 <div class="col-md-4 col-12 service-option">
                                     <div class="service-cell"
+                                        id="help_unloading_card"
                                         aria-checked="false"
                                         tabindex="0"
                                         onkeydown="toggleCheckbox(event)"
@@ -293,7 +295,7 @@
                                         onfocus="focusCheckbox(event)"
                                         onblur="blurCheckbox(event)">
 
-                                        <input type="option" name="help_unloading" value="unloading" id="unloading" class="d-none">
+                                        <input type="checkbox" name="help_unloading" value="unloading" id="unloading" class="d-none">
                                         <div class="col-lg-3 col-12 check-image">
                                             <img class="check-img" src="{{ asset('img/icon/checkbox-unchecked-black.png') }}" alt="">
                                             <p class="check-text">83.30€</p>
@@ -304,6 +306,7 @@
                                 </div>
                                 <div class="col-md-4 col-12 service-option" id="tail_lift_item">
                                     <div class="service-cell"
+                                        id="help_lift_card"
                                         aria-checked="false"
                                         tabindex="0"
                                         onkeydown="toggleCheckbox(event)"
@@ -311,9 +314,9 @@
                                         onfocus="focusCheckbox(event)"
                                         onblur="blurCheckbox(event)">
 
-                                        <input type="option" name="tail_lift" value="tail_lift" id="tail_lift" class="d-none">
+                                        <input type="checkbox" name="tail_lift" value="tail_lift" id="tail_lift" class="d-none">
                                         <div class="col-lg-3 col-12 check-image">
-                                            <img class="check-img" src="{{ asset('img/icon/checkbox-unchecked-black.png') }}" alt="">
+                                            <img class="check-img" id="tail_lift_img" src="{{ asset('img/icon/checkbox-unchecked-black.png') }}" alt="">
                                             <p class="check-text">166.60€</p>
                                         </div>
                                         <p class="service-text col-lg-5 col-12">Tail Lift</p>
@@ -342,7 +345,7 @@
                             <p class="desc-text">When do you want the pickup to take place?</p>
                             <div class="col-md-6 mt-4">
                                 <label class="form-check-label" for="collection_day">PICK-UP DATE</label>
-                                <input placeholder="Day of collection" name="collection_day" class="form-control"
+                                <input placeholder="Day of collection" name="collection_day" class="form-control" onchange="esti_calc()"
                                     type="text" onblur="(this.type='text')" onfocus="(this.type='date')" id="datepicker"
                                     data-date-days-of-week-disabled="0,6">
                                 <p class="error-valid" id="collection_day_invalid"><i class="zmdi zmdi-alert-circle-o me-1"></i>Please enter the pickup date</p>
@@ -412,12 +415,11 @@
                         </div>
                         <div class="calculator d-flex flex-wrap">
                             <div class="col-md-4 col-4">
-                                <button type="button" class="btn esti-btn my-3" onclick="esti_calc()">Get a price</button>
+                                <!-- <button type="button" class="btn esti-btn my-3" onclick="esti_calc()">Get a price</button> -->
                                 <div class="esti-prices">
                                     <p id="distance_value">Distance: <span id="distance_val" class="esti-price"></span></p>
                                     <p id="duration_value">Duration: <span id="duration_val" class="esti-price"></span></p>
                                     <p id="price_value">Price: € <span id="price_val" class="esti-price"></span></p>
-                                    <p id="cost_value" class="d-none">Cost per km: <span id="cost_val" class="esti-price">2</span></p>
                                 </div>
                             </div>
                             <div class="col-md-8 col-8">
@@ -792,7 +794,6 @@
     function esti_calc() {
         var pickup_location = document.getElementById("sender_city").value;
         var destination_location = document.getElementById("receiver_city").value;
-        var cost_val = document.getElementById("cost_val").innerHTML;
 
         if(pickup_location == '' || destination_location == '') {
             Command: toastr["warning"]("Please type a pickup & destination addresses!");
@@ -865,6 +866,17 @@
 
             var collection_day = $('#datepicker').val();
             var today = new Date().toISOString().slice(0, 10);
+            
+            var loading_checked = $("#help_loading_card").attr( "aria-checked" );
+            var unloading_checked = $("#help_unloading_card").attr( "aria-checked" );
+            var lift_checked = $("#help_lift_card").attr( "aria-checked" );
+
+            var van_type_checked = $('input[name="van_type"]:checked').val();
+            
+            if(van_type_checked == "box") {
+                $("#help_lift_card").attr("aria-checked", "false");
+                $("#tail_lift_img").attr("src", "img/icon/checkbox-unchecked-black.png");
+            }
 
             if (van_type == 'box') {
                 if (pickup_box_price == destination_box_price) {
@@ -899,29 +911,33 @@
                 console.log("1");
             }
 
-            if($('input[name="help_loading"] option:selected')) {
+            if(loading_checked == "true") {
                 var real_price = Number(real_price) + 83.3;
                 console.log("2");
             }
 
-            if($('input[name="help_unloading"] option:selected')) {
+            if(unloading_checked == "true") {
                 var real_price = Number(real_price) + 83.3;
                 console.log("3");
             }
 
-            if($('input[name="tail_lift"] option:selected')) {
+            if(lift_checked == "true") {
                 var real_price = Number(real_price) + 166.6;
                 console.log("4");
             }
             if(collection_day == today) {
-                var real_price = Number(real_price + 95.2);
+                var real_price = Number(real_price) + 95.2;
                 console.log("5");
             }
 
-            var real_price = (real_price).toFixed(2);
+            var weekend_day = new Date(collection_day);
+            if(weekend_day.getDay() == 6 || weekend_day.getDay() == 0)
+            {
+                var real_price = Number(real_price) + 130.9;
+                console.log("6");
+            }
 
-            var result_cost = distance_value * cost_val / 1000;
-            var result_cost = (result_cost).toFixed(2);
+            var real_price = Number(real_price).toFixed(2);
 
             document.getElementById("distance_val").innerHTML = distance;
             document.getElementById("fixed_footer_distance").innerHTML = distance;
@@ -981,25 +997,25 @@
 <script>
     function toggleCheckbox(event) {
 
-    var node = event.currentTarget
-    var image = node.getElementsByTagName('img')[0]
+        var node = event.currentTarget
+        var image = node.getElementsByTagName('img')[0]
 
-    var state = node.getAttribute('aria-checked').toLowerCase()
+        var state = node.getAttribute('aria-checked').toLowerCase()
 
-    if (event.type === 'click' || (event.type === 'keydown' && event.keyCode === 32)) {
-        if (state === 'true') {
-            node.setAttribute('aria-checked', 'false')
-            image.src = '{{ asset('img/icon/checkbox-unchecked-black.png') }}'
+        if (event.type === 'click' || (event.type === 'keydown' && event.keyCode === 32)) {
+            if (state === 'true') {
+                node.setAttribute('aria-checked', 'false')
+                image.src = '{{ asset('img/icon/checkbox-unchecked-black.png') }}'
+            }
+            else {
+                node.setAttribute('aria-checked', 'true')
+                image.src = '{{ asset('img/icon/checkbox-checked-black.png') }}'
+            }  
+
+            event.preventDefault()
+            event.stopPropagation()
         }
-        else {
-            node.setAttribute('aria-checked', 'true')
-            image.src = '{{ asset('img/icon/checkbox-checked-black.png') }}'
-        }  
-
-        event.preventDefault()
-        event.stopPropagation()
-    }
-
+        esti_calc();
     }
 
     function focusCheckbox(event) {
@@ -1028,9 +1044,9 @@
         var receiver_phone = $('#receiver_phone').val();
         var receiver_full_phone = $("input[name='receiver_full_phone']").val();
         var van_type = $('input[name="van_type"]:checked').val();
-        var help_loading = $('input[name="help_loading"].checked').val();
-        var help_unloading = $('input[name="help_unloading"]:checked').val();
-        var tail_lift = $('input[name="tail_lift"]').val();
+        var help_loading = $("#help_loading_card").attr( "aria-checked" );
+        var help_unloading = $("#help_unloading_card").attr( "aria-checked" );
+        var tail_lift = $("#help_lift_card").attr( "aria-checked" );
         var cargo_info = $('#cargo_info').val();
         var cargo_val = $('#cargo_val').val();
         var collection_day = $('#datepicker').val();
@@ -1042,6 +1058,9 @@
         var contact_note = $('#contact_note').val();
         var term_agree = $('input[name="term_agree"]:checked').val();
         var price = $('#price_val').html();
+
+        alert(price);
+        return;
 
         if(who_type == '') {
             $('#who_type_invalid').show();
