@@ -76,6 +76,7 @@ class PriceController extends Controller
                     ]);
         }
 
+
         $result = Price::create([
             'who_type' => $data['who_type'],
             'pickup_country' => $data['pickup_country'],

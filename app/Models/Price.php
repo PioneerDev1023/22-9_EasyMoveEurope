@@ -38,5 +38,6 @@ class Price extends Model
         'contact_phone',
         'contact_full_phone', 
         'contact_note',
+        'price'
     ];
 }

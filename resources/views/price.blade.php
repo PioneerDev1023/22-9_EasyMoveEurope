@@ -462,7 +462,7 @@
     <!-- End Get a Quote Section -->
     <div id="fix_footer">
         <div class="fix-footer-wrapper container">
-            <div class="col-md-6 col-12 d-flex justify-content-center">
+            <div class="col-md-6 col-12 d-flex justify-content-center fix-footer-route">
                 <div class="location-area">
                     <p class="where-text">From</p>
                     <h3 class="pickup-footer where-country"></h3>
@@ -1058,9 +1058,6 @@
         var contact_note = $('#contact_note').val();
         var term_agree = $('input[name="term_agree"]:checked').val();
         var price = $('#price_val').html();
-
-        alert(price);
-        return;
 
         if(who_type == '') {
             $('#who_type_invalid').show();

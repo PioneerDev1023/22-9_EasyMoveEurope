@@ -67,6 +67,7 @@
 }
 .esti-prices {
   text-align: left;
+  margin: 30px 0px;
 }
 .esti-price {
   color: #dc3545;
@@ -103,4 +104,7 @@
 }
 #desti_country {
   background-color: white;
+}
+.measure-cell {
+  padding-top: 10px;
 }
